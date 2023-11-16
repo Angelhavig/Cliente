@@ -20,7 +20,7 @@ export class ComentariosBlogService {
   getComentarios(id: number): Observable<Comentarios_Blogs[]>{
     return this.http.get<Comentarios_Blogs[]>(this.myAppUrl + this.myApiUrl + id).pipe(
       catchError(error => {
-        console.error('Error en la solicitud HTTP:', error);
+        console.error('Error en la solicitud HTTP de la base de datos:', error);
         return throwError(error);
       })
     );
