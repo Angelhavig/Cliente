@@ -1,0 +1,64 @@
+<header>
+    <div class="logo">
+        <!-- Puedes reemplazar el siguiente texto con tu imagen de logo -->
+        Logo
+    </div>
+
+    <div class="links">
+        <a routerLink="/Home">Inicio</a>
+        <a routerLink="/Servicios">Servicios</a>
+        <a routerLink="/About">Acerca de nosotros</a>
+        <a routerLink="/Contact-info">Contacto</a>
+    </div>
+
+    <div class="buttons">
+        <button class="login-btn" routerLink="/Login">Iniciar Sesión</button>
+    </div>
+</header>
+
+<div class="post">
+  <div class="card-details" *ngIf="blog">
+    <h2>Titulo: {{ blog.Titulo_Blog }}</h2>
+      <p>{{ blog.Subtitulo_Blog }}</p>
+      <p>{{ blog.Contenido_Blog }}</p>
+      <p>Fecha de Creación: {{ blog.Fecha_Blog }}</p>
+  </div>
+  </div>
+  
+  <div>
+    <form [formGroup]="comment" (ngSubmit)="addBlog()" class="form-container">
+      <div class="form-row">
+          <label>Titulo</label>
+          <input formControlName="Titulo_Comentario" type="text" placeholder="Ingrese el titulo" autocomplete="off" />
+          <div class="error" *ngIf="comment.get('Titulo_Comentario')?.hasError('required') && comment.get('Titulo_Comentario')?.touched">
+              El titulo es un campo <strong>requerido</strong>
+          </div>
+          <div class="error" *ngIf="comment.get('Titulo_Comentario')?.hasError('maxlength')">
+              El ID debe tener como máximo <strong>20 caracteres</strong>
+          </div>
+      </div>
+
+      <div class="form-row">
+          <label>Contenido</label>
+          <input formControlName="Contenido_Comentario" type="text" placeholder="Ingrese la descripción" autocomplete="off" />
+          <div class="error" *ngIf="comment.get('Contenido_Comentario')?.hasError('required') && comment.get('Contenido_Comentario')?.touched">
+              La descripción es un campo <strong>requerido</strong>
+          </div>
+          <div class="error" *ngIf="comment.get('Contenido_Comentario')?.hasError('Contenido_Comentario') && comment.get('Contenido_Comentario')?.touched">
+              La descripción es <strong>inválida</strong>
+          </div>
+      </div>
+      <mat-dialog-actions>
+          <button type="submit" mat-button cdkFocusInitial>Aceptar</button>
+      </mat-dialog-actions>
+  </form>
+  </div>
+
+  <div class="card-horizontal" *ngFor="let comentario of comentario">
+    <img src="https://via.placeholder.com/150" alt="Imagen" class="card-img">
+    <div class="card-details" *ngIf="comentario">
+      <h2>Titulo: {{ comentario.Titulo_Comentario }}</h2>
+      <p>{{ comentario.Contenido_Comentario }}</p>
+      <p>Fecha de Creación: {{ comentario.Fecha }}</p>
+    </div>
+  </div>

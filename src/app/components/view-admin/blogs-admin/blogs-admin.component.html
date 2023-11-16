@@ -1,0 +1,65 @@
+<mat-toolbar>
+    <span>Blogs</span>
+</mat-toolbar>
+<mat-card>
+    <div class="tools">
+        <mat-form-field class="filter">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+        <button mat-fab color="primary" (click)="add()">
+            <mat-icon >add_circle</mat-icon>
+        </button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Titulo_Blog">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </th>
+            <td mat-cell *matCellDef="let element"> {{element.Titulo_Blog}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Subtitulo_Blog">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Subtitulo </th>
+            <td mat-cell *matCellDef="let element"> {{element.Subtitulo_Blog}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Contenido_Blog">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Contenido </th>
+            <td mat-cell *matCellDef="let element"> {{element.Contenido_Blog}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Fecha_Blog">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+            <td mat-cell *matCellDef="let element"> {{element.Fecha_Blog}} </td>
+        </ng-container>
+
+        <!-- Button Delete Column -->
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+            <td mat-cell *matCellDef="let element"> 
+                <mat-icon class="btnicon" (click)="element.id !== undefined ? edit(element.id) : null" matTooltip="editar">edit</mat-icon>
+                <mat-icon class="btnicon" (click)="element.id !== undefined ? detalles(element.id, element.Titulo_Blog) : null" matTooltip="ver">visibility</mat-icon>
+                <mat-icon class="btnicon" (click)="element.id !== undefined ? detalles(element.id, element.Titulo_Blog) : null" matTooltip="eliminar">delete</mat-icon>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[3]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+</mat-card>

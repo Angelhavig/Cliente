@@ -1,0 +1,33 @@
+<header>
+    <div class="logo">
+        <!-- Puedes reemplazar el siguiente texto con tu imagen de logo -->
+        Logo
+    </div>
+
+    <div class="links">
+        <a routerLink="/Home">Inicio</a>
+        <a routerLink="/Servicios">Servicios</a>
+        <a routerLink="/About">Acerca de nosotros</a>
+        <a routerLink="/Contact-info">Contacto</a>
+    </div>
+
+    <div class="buttons">
+        <button class="login-btn" routerLink="/Login">Iniciar Sesión</button>
+    </div>
+</header>
+
+<div class="contenedor">
+    <form action="#" method="post">
+      <h1>Formulario de Contacto</h1>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+  
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+  
+      <button type="submit" disabled>Enviar Mensaje</button>
+    </form>
+  </div>

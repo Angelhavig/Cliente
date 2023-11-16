@@ -1,0 +1,36 @@
+mat-toolbar{
+    background-color: white;
+    color: black;
+}
+
+mat-card{
+    background-color: white;
+    color: black;
+    align-content: center;
+}
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-table tbody, .mat-mdc-table tfoot, .mat-mdc-table thead, .mat-mdc-cell, .mat-mdc-footer-cell, .mat-mdc-header-row, .mat-mdc-row, .mat-mdc-footer-row, .mat-mdc-table .mat-mdc-header-cell {
+    background: white;
+    color: black;}
+.btnicon{
+    cursor: pointer;
+}
+.btnicon:hover{
+    color: rgb(12, 133, 48);
+}
+
+.tools{
+    display: flex;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    height: 46px;
+}
+.filter{
+    height: 12vh;
+    width: 100%;
+}

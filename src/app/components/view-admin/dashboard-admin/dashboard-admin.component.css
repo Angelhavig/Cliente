@@ -1,0 +1,135 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  header {
+    background-color: #333;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 50px; /* Ajusta el tamaño según tus necesidades */
+  }
+  
+  .links {
+    display: flex;
+  }
+  
+  .links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .buttons{
+    display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 15%;
+  }
+  
+  .login-btn {
+    background-color: #3498db; /* Azul */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 21px;
+    cursor: pointer;
+  }
+  
+  .register-btn {
+    background-color: #2ecc71; /* Verde */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 21px;
+    cursor: pointer;
+  }
+  
+  
+#content {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+.site-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.dashboard-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 85vh;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 16px;
+  display: block;
+  border-radius: 5px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background-color: #555;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+section {
+  margin-top: 20px;
+}
+
+section h1 {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,13 @@
+
+<div class="card-horizontal" *ngFor="let empresa of empresas">
+    <img src="https://via.placeholder.com/150" alt="Imagen" class="card-img">
+    <div class="card-details" *ngIf="empresa">
+      <h2>Titulo: {{ empresa.Titulo_Empresa }}</h2>
+      <p>{{ empresa.Descripcion_Empresa }}</p>
+      <p>{{ empresa.Contacto_Empresa }}</p>
+      <p>{{ empresa.Correo_Empresa }}</p>
+      <p>Sector: {{ empresa.Sector_Empresa }}</p>
+      <button class="ver-btn" (click)="empresa.id !== undefined ? detalles(empresa.id, empresa.Titulo_Empresa) : null">leer</button>
+    </div>
+  </div>
+  

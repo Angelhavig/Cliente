@@ -1,0 +1,94 @@
+<div class="container">
+    <div clas="cont-titulo">
+        <h2 mat-dialog-title class="titulo">Agregar Empresa</h2>
+    </div>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="form" (ngSubmit)="addEmpresa()" class="form-container">
+            <div class="form-row">
+                <label>Titulo Empresa</label>
+                <input formControlName="Titulo_Empresa" type="text" placeholder="Ingrese el titulo" autocomplete="off" />
+                <div class="error"
+                    *ngIf="form.get('Titulo_Empresa')?.hasError('required') && form.get('Titulo_Empresa')?.touched">
+                    El titulo es un campo <strong>requerido</strong>
+                </div>
+                <div class="error" *ngIf="form.get('Titulo_Empresa')?.hasError('maxlength')">
+                    El ID debe tener como máximo <strong>20 caracteres</strong>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label>Descripcion</label>
+                <input formControlName="Descripcion_Empresa" type="text" placeholder="Ingrese el Sub titulo"
+                    autocomplete="off" />
+                <div class="error"
+                    *ngIf="form.get('Descripcion_Empresa')?.hasError('required') && form.get('Descripcion_Empresa')?.touched">
+                    El campo título es <strong>requerido</strong>
+                </div>
+                <div class="error" *ngIf="form.get('Descripcion_Empresa')?.hasError('maxlength')">
+                    El subtitulo debe tener como máximo <strong>20 caracteres</strong>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label>Contacto</label>
+                <input formControlName="Contacto_Empresa" type="text" placeholder="Ingrese la descripción"
+                    autocomplete="off" />
+                <div class="error"
+                    *ngIf="form.get('Contacto_Empresa')?.hasError('required') && form.get('Contacto_Empresa')?.touched">
+                    La descripción es un campo <strong>requerido</strong>
+                </div>
+                <div class="error" *ngIf="form.get('Contacto_Empresa')?.hasError('maxlength')">
+                    El subtitulo debe tener como máximo <strong>20 caracteres</strong>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label>Correo</label>
+                <input formControlName="Correo_Empresa" type="text" placeholder="Ingrese la descripción"
+                    autocomplete="off" />
+                <div class="error"
+                    *ngIf="form.get('Correo_Empresa')?.hasError('required') && form.get('Correo_Empresa')?.touched">
+                    La descripción es un campo <strong>requerido</strong>
+                </div>
+                <div class="error"
+                    *ngIf="form.get('Correo_Empresa')?.hasError('email') && form.get('Correo_Empresa')?.touched">
+                    La descripción es <strong>inválida</strong>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label>Pais</label>
+                <input formControlName="Pais_Empresa" type="text" placeholder="Ingrese la descripción"
+                    autocomplete="off" />
+                <div class="error"
+                    *ngIf="form.get('Pais_Empresa')?.hasError('required') && form.get('Pais_Empresa')?.touched">
+                    La descripción es un campo <strong>requerido</strong>
+                </div>
+                <div class="error" *ngIf="form.get('Pais_Empresa')?.hasError('maxlength')">
+                    El subtitulo debe tener como máximo <strong>20 caracteres</strong>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <label>Sector</label>
+                <input formControlName="Sector_Empresa" type="text" placeholder="Ingrese la descripción"
+                    autocomplete="off" />
+                <div class="error"
+                    *ngIf="form.get('Sector_Empresa')?.hasError('required') && form.get('Sector_Empresa')?.touched">
+                    La descripción es un campo <strong>requerido</strong>
+                </div>
+                <div class="error" *ngIf="form.get('Sector_Empresa')?.hasError('maxlength')">
+                    El subtitulo debe tener como máximo <strong>20 caracteres</strong>
+                </div>
+            </div>
+
+
+
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button (click)="cancelar()">Cancelar</button>
+        <button mat-button cdkFocusInitial (click)="addEmpresa()">Agregar</button>
+    </mat-dialog-actions>
+</div>

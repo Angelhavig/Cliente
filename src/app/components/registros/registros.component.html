@@ -1,0 +1,39 @@
+<body>
+    <form [formGroup]="form" (ngSubmit)="addBlog()" class="form-container">
+        <div class="form-row">
+            <label>Titulo</label>
+            <input formControlName="Titulo_Blog" type="text" placeholder="Ingrese el titulo" autocomplete="off" />
+            <div class="error" *ngIf="form.get('Titulo_Blog')?.hasError('required') && form.get('Titulo_Blog')?.touched">
+                El titulo es un campo <strong>requerido</strong>
+            </div>
+            <div class="error" *ngIf="form.get('Titulo_Blog')?.hasError('maxlength')">
+                El ID debe tener como máximo <strong>20 caracteres</strong>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>Sub Titulo</label>
+            <input formControlName="Subtitulo_Blog" type="text" placeholder="Ingrese el Sub titulo" autocomplete="off" />
+            <div class="error" *ngIf="form.get('Subtitulo_Blog')?.hasError('required') && form.get('Subtitulo_Blog')?.touched">
+                El campo título es <strong>requerido</strong>
+            </div>
+            <div class="error" *ngIf="form.get('Subtitulo_Blog')?.hasError('maxlength')">
+                El subtitulo debe tener como máximo <strong>20 caracteres</strong>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>Contenido</label>
+            <input formControlName="Contenido_Blog" type="text" placeholder="Ingrese la descripción" autocomplete="off" />
+            <div class="error" *ngIf="form.get('Contenido_Blog')?.hasError('required') && form.get('Contenido_Blog')?.touched">
+                La descripción es un campo <strong>requerido</strong>
+            </div>
+            <div class="error" *ngIf="form.get('Contenido_Blog')?.hasError('email') && form.get('descripcion')?.touched">
+                La descripción es <strong>inválida</strong>
+            </div>
+        </div>
+        <mat-dialog-actions align="end">
+            <button type="submit" mat-button cdkFocusInitial>Aceptar</button>
+        </mat-dialog-actions>
+    </form>
+</body>
