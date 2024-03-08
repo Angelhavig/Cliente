@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-section {
+  flex: 1;
+  background-color: #B11830; /* Cambia esto al color que desees */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-section img {
+  max-width: 80%;
+  height: auto;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+form {
+  max-width: 500px;
+  text-align: center;
+  height: 100%; /* Ajuste para ocupar 100% de la altura */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+input[type="email"],
+input[type="password"],
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4CAF50; /* Cambia esto al color que desees */
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049; /* Cambia esto al color que desees */
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-section,
+  .right-section {
+    flex: 1;
+  }
+}

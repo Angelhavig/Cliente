@@ -1,108 +1,120 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+/* Estilo para el sidebar */
+#sidebar {
+    width: 15%; /* Ancho del sidebar */
+    height: 100vh; /* Altura completa del viewport */
+    background-color: #B11830;
+    color: #fff;
+    float: left; /* Hacer flotar a la izquierda */
+}
+/* Estilo para la imagen del sidebar */
+#sidebar img {
+    display: block; /* Hacer que la imagen sea un bloque */
+    margin: auto; /* Margen superior e inferior de 20px, centrado horizontalmente */
+    width: 80%; /* Ancho del 80% del sidebar */
 }
 
-header {
-  background-color: #333;
-  padding: 15px;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Estilo para la lista de opciones del sidebar */
+#sidebar ul {
+    list-style-type: none; /* Quitar los estilos de lista predeterminados */
+    padding: 0; /* Eliminar el relleno */
+}
+/* Estilo para cada elemento de la lista del sidebar */
+#sidebar li {
+    padding: 10px 10px; /* Relleno superior e inferior de 10px, sin relleno horizontal */
+    text-align: start; /* Centrar el texto horizontalmente */
+}
+/* Estilo para el enlace de cerrar sesión en el sidebar */
+#sidebar a {
+    display: block; /* Hacer que el enlace sea un bloque */
+    text-align: start; /* Centrar el texto horizontalmente */
+    color: #fff; /* Color del texto */
+    text-decoration: none; /* Quitar subrayado */
+    padding: 10px 0; /* Relleno superior e inferior de 10px, sin relleno horizontal */
+    background-color: #555; /* Color de fondo */
+}
+/* Estilo para el toolbar */
+#toolbar {
+    width: 85%; /* Ancho del 80% del viewport */
+    height: 60px; /* Altura fija de 50px */
+    background-color: #B11830;
+    color: #fff;
+    text-align: center; /* Centrar el texto horizontalmente */
+    line-height: 50px; /* Altura de línea igual a la altura del elemento */
+    float: right; /* Hacer flotar a la derecha */
+}
+/* Estilo para el contenedor de contenido */
+#content {
+    margin: 20px 20px 20px 20px; /* Margen exterior de 20px */
+    width: calc(80% - 20px); /* Ancho del 80% del viewport menos los márgenes */
+    height: calc(90% - 70px); /* Altura del viewport menos la altura del toolbar y los márgenes */
+    float: right; /* Hacer flotar a la derecha */
+    
 }
 
-.logo {
-  width: 50px; /* Ajusta el tamaño según tus necesidades */
-}
+button {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+  }
+  
+  button {
+    background-color: #4CAF50; /* Cambia esto al color que desees */
+    color: white;
+    cursor: pointer;
+  }
 
-.links {
-  display: flex;
+p{
+    size: 50px;
+    
 }
-
-.links a {
-  color: white;
-  text-decoration: none;
-  margin-right: 20px;
-}
-
-.buttons{
-  display: flex;
-    flex-direction: row;
+.contenedor-tarjetas{
+    display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-content: space-around;
+    align-items: center;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
-    width: 15%;
+    gap: 10px;
+}
+/* Estilo para la tarjeta */
+.tarjeta {
+    width: calc(30%); /* Ancho de la tarjeta (50% del contenedor menos el espacio entre ellas) */
+    height: 200px; /* Altura de la tarjeta */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde sólido de color gris */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #D9D9D9;
+    cursor: pointer;
 }
 
-.login-btn {
-  background-color: #3498db; /* Azul */
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 21px;
-  cursor: pointer;
-}
 
-.register-btn {
-  background-color: #2ecc71; /* Verde */
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 21px;
-  cursor: pointer;
-}
-
-.contenedor {
-  display: flex;
-  height: 90vh;
-}
-
-.columna {
-  flex: 1;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.izquierda {
-  background-color: #f0f0f0; /* Color de fondo para la columna izquierda */
-} 
-
-.derecha {
-  background-color: #ffffff;
-   /* Color de fondo para la columna derecha */
-   display: flex;
-   flex-direction: column;
-   align-content: center;
-   justify-content: space-evenly;
-   align-items: center;
-}
-
+/* Estilo para la imagen */
 .imagen {
-  width: 100%;
-  height: 100%;
+    width: 80px; /* Ancho de la imagen */
+    height: 80px; /* Altura de la imagen */
+    border-radius: 50%; /* Hacer la imagen circular */
+    overflow: hidden; /* Ocultar partes de la imagen que sobresalgan del círculo */
+}
+/* Estilo para el texto */
+.texto {
+    text-align: center; /* Alineación centrada del texto */
 }
 
-h1, h2, p {
-  margin: 0;
-}
+.date{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
 
-.iniciar-btn {
-  background-color: #3498db;
-  color: #ffffff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 21px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 264px;
 }
-
-.iniciar-btn span {
-  margin-right: 10px;
-}
-
-/* Agrega la fuente de iconos (Font Awesome) si aún no lo has hecho */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');

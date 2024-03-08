@@ -1,0 +1,16 @@
+
+<body>
+  <div class="container">
+    <div class="left-section">
+      <img src="../../../assets/img/logo.png" alt="Imagen">
+    </div>
+    <div class="right-section">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <h2>Iniciar sesión</h2>
+        <input type="email" placeholder="Correo electrónico" id="usermail" formControlName="usermail" required>
+        <input type="password" placeholder="Contraseña" id="userpassword" formControlName="userpassword" required>
+        <button type="submit">Ingresar</button>
+      </form>
+    </div>
+  </div>
+</body>

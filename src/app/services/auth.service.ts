@@ -30,6 +30,7 @@ export class AuthService {
       this.observeUserState()
     })
     .catch((error)=>{
+      throw error;
       alert(error.message);
     })
   }
@@ -39,6 +40,7 @@ export class AuthService {
     .then(()=> this.observeUserState())
     .catch((error: Error)=>{
       alert(error.message);
+      this.router.navigate(['/Login'])
     })
   }
 
@@ -49,6 +51,7 @@ export class AuthService {
     })
     .catch((error)=>{
       alert(error.message);
+      this.router.navigate(['/Login'])
     })
   }
 

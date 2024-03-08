@@ -1,29 +1,71 @@
-<header>
-    <div class="logo">
-        <!-- Puedes reemplazar el siguiente texto con tu imagen de logo -->
-        Logo
-    </div>
-
-    <div class="links">
-        <a routerLink="/Home">Inicio</a>
-        <a routerLink="/Servicios">Servicios</a>
-        <a routerLink="/About">Acerca de nosotros</a>
-        <a routerLink="/Contact-info">Contacto</a>
-    </div>
-
-    <div class="buttons">
-        <button class="login-btn" routerLink="/Login">Iniciar Sesión</button>
-    </div>
-</header>
-<div class="contenedor">
-    <div class="columna izquierda">
-        <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Ym9va3xlbnwwfHwwfHx8MA%3D%3D" alt="Imagen" class="imagen">
-    </div>
-    <div class="columna derecha">
-        <h1>Título</h1>
-        <h2>Subtítulo</h2>
-        <p>Nombre: Juan Pérez</p>
-        <p>Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <button class="iniciar-btn" routerLink="/blogs"><span>Inicio</span> <i class="fas fa-arrow-right"></i></button>
-    </div>
+<div id="sidebar">
+  <img src="../../../assets/img/logo.png" alt="Imagen de Inicio"> <!-- Imagen de inicio en el sidebar -->
+  <ul>
+      <li>Visualizar Personal</li>
+      <li>Visualizar Contratos</li>
+      <li>Nuevo Registro de Perosonal</li>
+      <li>Generar Nuevo Contrato</li>
+      <li>Configuracion</li>
+      <li><button type="submit" (click)="logout()">Cerrar Sesion</button></li>
+  </ul>
 </div>
+
+<div id="toolbar"><p>Sistema de Contratos UJED</p></div> <!-- Toolbar -->
+
+<div id="content">
+    <div class="contenedor-tarjetas">
+      <!-- Primera fila -->
+      <div class="tarjeta" routerLink="/Login">
+          <div class="imagen">
+              <img src="imagen1.jpg" alt="Imagen 1"> <!-- Reemplaza "imagen1.jpg" con la ruta de tu imagen -->
+          </div>
+          <div class="texto">
+              Visualizar Personal
+          </div>
+      </div>
+  
+      <div class="tarjeta" routerLink="/Login">
+          <div class="imagen">
+              <img src="imagen2.jpg" alt="Imagen 2"> <!-- Reemplaza "imagen2.jpg" con la ruta de tu imagen -->
+          </div>
+          <div class="texto">
+              Visualizar Contratos
+          </div>
+      </div>
+  
+      <div class="tarjeta" routerLink="/Login">
+          <div class="imagen">
+              <img src="imagen3.jpg" alt="Imagen 3"> <!-- Reemplaza "imagen3.jpg" con la ruta de tu imagen -->
+          </div>
+          <div class="texto">
+              Agregar Nuevo Perosonal
+          </div>
+      </div>
+  
+      <!-- Segunda fila -->
+      <div class="tarjeta" routerLink="/Login">
+          <div class="imagen">
+              <img src="imagen4.jpg" alt="Imagen 4"> <!-- Reemplaza "imagen4.jpg" con la ruta de tu imagen -->
+          </div>
+          <div class="texto">
+              Generar Nuevo Contrato
+          </div>
+      </div>
+  
+      <div class="tarjeta" routerLink="/Login">
+          <div class="imagen">
+              <img src="imagen5.jpg" alt="Imagen 5"> <!-- Reemplaza "imagen5.jpg" con la ruta de tu imagen -->
+          </div>
+          <div class="texto">
+              Configuracion
+          </div>
+      </div>
+      
+  </div>
+  <div class="date">
+    Fecha: {{ fecha }} {{ hora }}
+  </div>
+  <div>
+
+  </div>
+</div> <!-- Contenedor de contenido -->
