@@ -6,10 +6,16 @@
     </div>
     <div class="right-section">
       <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <h2>Iniciar sesión</h2>
-        <input type="email" placeholder="Correo electrónico" id="usermail" formControlName="usermail" required>
-        <input type="password" placeholder="Contraseña" id="userpassword" formControlName="userpassword" required>
-        <button type="submit">Ingresar</button>
+        <h1>Login form</h1>
+        <div class="form-group">
+          <label for="">Correo</label>
+          <input type="email" class="form-control" placeholder="Correo electrónico*" id="usermail" formControlName="usermail" required>
+        </div>
+        <div>
+          <label for="">Contraseña</label>
+          <input type="password" class="form-control" placeholder="Contraseña*" id="userpassword" formControlName="userpassword" required>
+        </div>
+        <input type="submit" class="btn" value="Login">
       </form>
     </div>
   </div>

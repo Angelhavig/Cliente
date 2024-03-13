@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -11,12 +11,17 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit{
   loginForm: FormGroup;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  
 
   constructor(private fb: FormBuilder, private _authService: AuthService, private _snackBar: MatSnackBar, private router: Router){
     this.loginForm = this.fb.group({
       usermail: ['', [Validators.required, Validators.email, Validators.maxLength(60)]],
       userpassword: ['', Validators.required]
     });
+
+    
   }
     ngOnInit(): void {
     
@@ -30,7 +35,7 @@ export class LoginComponent implements OnInit{
         }). catch (error =>{
         // Manejo de la excepción
         
-        this.mensaje('error', error.message);
+        this.mensaje('error');
     
         // Puedes agregar aquí código adicional para manejar el error, como mostrar un mensaje de error al usuario.
     });
@@ -39,16 +44,25 @@ export class LoginComponent implements OnInit{
 
     mensaje(tipo: string, mensaje?: string) {
       let mensajeMostrar: string;
-      if (tipo === 'exitosa') {
-        mensajeMostrar = 'La entrada fue exitosa';
+      if (tipo === 'Exito') {
+        mensajeMostrar = 'Bienvenid@!!   ' + this.loginForm.value.usermail;
       } else {
-        mensajeMostrar = 'Error al intentar iniciar sesión: ' + mensaje;
+        mensajeMostrar = 'Credenciales Invalidad';
       }
-      this._snackBar.open(mensajeMostrar, '', {
-        duration: 2000
+      this._snackBar.open(mensajeMostrar, 'Aceptar', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: 2000,
+        
       });
     }
 
 
+    openSnackBar() {
+      this._snackBar.open('Cannonball!!', 'Splash', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
+    }
 
 }

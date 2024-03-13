@@ -23,52 +23,56 @@ body {
   height: auto;
 }
 
-.right-section {
-  flex: 1;
+.right-section{
   display: flex;
+  align-self: center;
+  margin: auto;
+  width: 800px;
+  max-width: 50%;
+  flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+}
+
+.right-section form{
+  width: 50%;
+  height: 100%;
   padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 3);
 }
 
-form {
-  max-width: 500px;
+.right-section form h1{
   text-align: center;
-  height: 100%; /* Ajuste para ocupar 100% de la altura */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  
+  margin-bottom: 24px;
+  color: #222;
+
 }
 
-input[type="email"],
-input[type="password"],
-
-button {
+.right-section form .form-control{
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  height: 40px;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid silver;
+  margin: 10px 0 18px 0;
 }
-
-button {
-  background-color: #4CAF50; /* Cambia esto al color que desees */
-  color: white;
+.container form .btn{
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 30px;
+  border-radius: 19px;
+  border: none;
+  outline: none;
+  background: #A60303;
   cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+
 }
 
-button:hover {
-  background-color: #45a049; /* Cambia esto al color que desees */
-}
 
-@media only screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .left-section,
-  .right-section {
-    flex: 1;
-  }
-}
