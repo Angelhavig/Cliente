@@ -16,12 +16,14 @@ const routes: Routes = [
   //Rutas
   { path: 'Home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'Personal', component: PersonalComponent, canActivate: [AuthGuard] },
-  { path: 'Agregar Personal', component: AddpersonalComponent, canActivate: [AuthGuard] },
+  { path: 'Agregar-Personal', component: AddpersonalComponent, canActivate: [AuthGuard] },
   { path: 'Contratos', component: ContratosComponent, canActivate: [AuthGuard] },
-  { path: 'Generar Contrato', component: AddcontratosComponent, canActivate: [AuthGuard] },
+  { path: 'Generar-Contrato', component: AddcontratosComponent, canActivate: [AuthGuard] },
   { path: 'Ajustes', component: AjustesComponent, canActivate: [AuthGuard] },
   { path: 'Login', component: LoginComponent },
   { path: 'Error', component: ErrorComponent},
+  { path: '**',  redirectTo: '/Error'},
+
 ];
 
 //  path: 'dashboard-admin', component: DashboardAdminComponent, canActivate: [AuthGuard] 
