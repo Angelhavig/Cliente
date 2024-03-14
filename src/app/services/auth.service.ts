@@ -24,15 +24,15 @@ export class AuthService {
     });
   }
 
-  logInWithEmailAndPassword(email:string, password:string){
-    return this.firebaseAuthenticationService.signInWithEmailAndPassword(email, password).then((userCredential)=>{
-      this.userData = userCredential.user
-      this.observeUserState()
-    })
-    .catch((error)=>{
-      throw error;
-      alert(error.message);
-    })
+  logInWithEmailAndPassword(email: string, password: string) {
+    return this.firebaseAuthenticationService.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        this.userData = userCredential.user;
+        this.router.navigate(['/Home']); // Redirigir aquí después de iniciar sesión
+      })
+      .catch((error) => {
+        throw error;
+      });
   }
 
   logInWithGoogleProvider(){
