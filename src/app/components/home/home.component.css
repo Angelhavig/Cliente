@@ -1,42 +1,77 @@
-body {
+ body{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-/* Estilo para el sidebar */
-#sidebar {
-    width: 15%; /* Ancho del sidebar */
-    height: 100vh; /* Altura completa del viewport */
-    background-color: #B11830;
-    color: #fff;
-    float: left; /* Hacer flotar a la izquierda */
-}
-/* Estilo para la imagen del sidebar */
-#sidebar img {
-    display: block; /* Hacer que la imagen sea un bloque */
-    margin: auto; /* Margen superior e inferior de 20px, centrado horizontalmente */
-    width: 80%; /* Ancho del 80% del sidebar */
+
+.sidebar{
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    background: #B11830;
 }
 
-/* Estilo para la lista de opciones del sidebar */
-#sidebar ul {
-    list-style-type: none; /* Quitar los estilos de lista predeterminados */
-    padding: 0; /* Eliminar el relleno */
+.sidebar ul{
+    position: absolute;
+    height: 100%;
 }
-/* Estilo para cada elemento de la lista del sidebar */
-#sidebar li {
-    padding: 10px 10px; /* Relleno superior e inferior de 10px, sin relleno horizontal */
-    text-align: start; /* Centrar el texto horizontalmente */
+.sidebar ul li{
+    list-style: none;
 }
-/* Estilo para el enlace de cerrar sesión en el sidebar */
-#sidebar a {
-    display: block; /* Hacer que el enlace sea un bloque */
-    text-align: start; /* Centrar el texto horizontalmente */
-    color: #fff; /* Color del texto */
-    text-decoration: none; /* Quitar subrayado */
-    padding: 10px 0; /* Relleno superior e inferior de 10px, sin relleno horizontal */
-    background-color: #555; /* Color de fondo */
+.sidebar ul li:hover{
+    background: #f3f3f3 ;
 }
+.sidebar ul li a{
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.sidebar ul li a .icon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    color: #000000;
+}
+.sidebar ul li a .text{
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: #333 0.05em;
+    text-transform: 0.05em;
+    letter-spacing: 0.05em;
+}
+.sidebar ul li .logo{
+    margin-bottom: 50px;
+}
+.sidebar ul li .logo:hover{
+   background: #fff;
+}
+.sidebar ul li .logo .icon{
+    font-size: 2em;
+}
+.sidebar ul li .logo .text{
+    font-size: 1.2em;
+    font-weight: 500;
+
+}
+.bottom{
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+}
+
+
+
+
+
 /* Estilo para el toolbar */
 #toolbar {
     width: 85%; /* Ancho del 80% del viewport */
@@ -55,20 +90,7 @@ body {
     float: right; /* Hacer flotar a la derecha */
     
 }
-
-button {
-    width: 50%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-  }
-  
-  button {
-    background-color: #4CAF50; /* Cambia esto al color que desees */
-    color: white;
-    cursor: pointer;
-  }
+f
 
 p{
     size: 50px;
@@ -97,24 +119,11 @@ p{
     cursor: pointer;
 }
 
-
-/* Estilo para la imagen */
-.imagen {
-    width: 80px; /* Ancho de la imagen */
-    height: 80px; /* Altura de la imagen */
-    border-radius: 50%; /* Hacer la imagen circular */
-    overflow: hidden; /* Ocultar partes de la imagen que sobresalgan del círculo */
-}
-/* Estilo para el texto */
-.texto {
-    text-align: center; /* Alineación centrada del texto */
-}
-
 .date{
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
 
 }

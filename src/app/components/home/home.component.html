@@ -1,21 +1,29 @@
-<div id="sidebar">
-  <img src="../../../assets/img/logo.png" alt="Imagen de Inicio"> <!-- Imagen de inicio en el sidebar -->
-  <ul>
-      <li>Visualizar Personal</li>
-      <li>Visualizar Contratos</li>
-      <li>Nuevo Registro de Perosonal</li>
-      <li>Generar Nuevo Contrato</li>
-      <li>Configuracion</li>
-      <li><button type="submit" (click)="logout()">Cerrar Sesion</button></li>
-  </ul>
-</div>
+<body>
+<div class="sidebar">
+    <ul>
+        <li class="logo">
+            <a href="#">
+                <span class="icon"></span>
+                <span class="text">UJED</span>
+            </a>
+        </li>
+        <div class="bottom">
+            <li>
+                <a href="#">
+                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="logout"></mat-icon></span>
+                    <span class="text">Log Out</span>
+                </a>
+            </li>
+        </div>
 
+    </ul>
+</div>
 <div id="toolbar"><p>Sistema de Contratos UJED</p></div> <!-- Toolbar -->
 
 <div id="content">
     <div class="contenedor-tarjetas">
       <!-- Primera fila -->
-      <div class="tarjeta" routerLink="/Login">
+      <div class="tarjeta" routerLink="/Personal">
           <div class="imagen">
               <img src="imagen1.jpg" alt="Imagen 1"> <!-- Reemplaza "imagen1.jpg" con la ruta de tu imagen -->
           </div>
@@ -69,3 +77,5 @@
 
   </div>
 </div> <!-- Contenedor de contenido -->
+
+</body>

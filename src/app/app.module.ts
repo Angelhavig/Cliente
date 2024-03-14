@@ -30,6 +30,11 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { LoginComponent } from './components/login/login.component';
 
 import { ErrorComponent } from './components/error/error.component';
+import { PersonalComponent } from './components/personal/personal.component';
+import { AddpersonalComponent } from './components/addpersonal/addpersonal.component';
+import { ContratosComponent } from './components/contratos/contratos.component';
+import { AddcontratosComponent } from './components/addcontratos/addcontratos.component';
+import { AjustesComponent } from './components/ajustes/ajustes.component';
 
 
 
@@ -39,6 +44,11 @@ import { ErrorComponent } from './components/error/error.component';
     HomeComponent,
     LoginComponent,
     ErrorComponent,
+    PersonalComponent,
+    AddpersonalComponent,
+    ContratosComponent,
+    AddcontratosComponent,
+    AjustesComponent,
   ],
   imports: [
     BrowserModule,

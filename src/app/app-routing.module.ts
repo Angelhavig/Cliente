@@ -4,12 +4,22 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './guard/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
+import { PersonalComponent } from './components/personal/personal.component';
+import { AddpersonalComponent } from './components/addpersonal/addpersonal.component';
+import { ContratosComponent } from './components/contratos/contratos.component';
+import { AddcontratosComponent } from './components/addcontratos/addcontratos.component';
+import { AjustesComponent } from './components/ajustes/ajustes.component';
 
 const routes: Routes = [
   //Ruta por defecto
   { path: '', redirectTo: '/Login', pathMatch: 'full' },
   //Rutas
   { path: 'Home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'Personal', component: PersonalComponent, canActivate: [AuthGuard] },
+  { path: 'Agregar Personal', component: AddpersonalComponent, canActivate: [AuthGuard] },
+  { path: 'Contratos', component: ContratosComponent, canActivate: [AuthGuard] },
+  { path: 'Generar Contrato', component: AddcontratosComponent, canActivate: [AuthGuard] },
+  { path: 'Ajustes', component: AjustesComponent, canActivate: [AuthGuard] },
   { path: 'Login', component: LoginComponent },
   { path: 'Error', component: ErrorComponent},
 ];

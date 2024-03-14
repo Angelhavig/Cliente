@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Blogs } from 'src/app/interfaces/blogs';
 import { AuthService } from 'src/app/services/auth.service';
-import { BlogsService } from 'src/app/services/blogs.service';
+
 
 @Component({
   selector: 'app-home',
@@ -16,7 +15,7 @@ export class HomeComponent implements OnInit{
   fecha: string;
   hora: string;
   
-  constructor(private _blogService: BlogsService, private fb: FormBuilder, private _snackBar: MatSnackBar, private _authService: AuthService, private router: Router){
+  constructor( private fb: FormBuilder, private _snackBar: MatSnackBar, private _authService: AuthService, private router: Router){
     this.fecha = '';
     this.hora = '';
 
