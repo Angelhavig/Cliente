@@ -1,19 +1,35 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+*{
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
 }
 
+#toolbar {
+  width: 100%; 
+  height: 60px;
+  background-color: #B11830;
+  color: #fff;
+  text-align: center;
+  size: 800;
+  line-height: 50px; 
+  margin-bottom: 40px;
+}
+
+.mess{
+  margin-top: 100px;
+  display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* align-content: space-around; */
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+}
 .error-code {
   font-size: 120px;
   color: #555;
   margin: 0;
+  padding: 15px;
 }
 
 .error-message {
@@ -31,3 +47,4 @@ body {
 .back-link:hover {
   color: #0056b3;
 }
+
