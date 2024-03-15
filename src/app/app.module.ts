@@ -35,6 +35,10 @@ import { AddpersonalComponent } from './components/addpersonal/addpersonal.compo
 import { ContratosComponent } from './components/contratos/contratos.component';
 import { AddcontratosComponent } from './components/addcontratos/addcontratos.component';
 import { AjustesComponent } from './components/ajustes/ajustes.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -64,6 +68,10 @@ import { AjustesComponent } from './components/ajustes/ajustes.component';
     MatGridListModule,
     MatSidenavModule,
     MatIconModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatInputModule,
     provideFirebaseApp(()=>initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     AngularFireModule.initializeApp(environment.firebase),

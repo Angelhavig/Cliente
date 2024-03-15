@@ -1,84 +1,125 @@
-body{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    list-style: none;
+    text-decoration: none;
 }
-
-.sidebar{
-    position: absolute;
-    width: 250px;
+body{
+    background: #f3f5f9;
+}
+.wrapper{
+    display: flex;
+    position: relative;
+}
+.wrapper .sidebar{
+    position: fixed;
+    width: 200px;
     height: 100%;
     background: #B11830;
+    padding: 30px 0;
 }
 
-.sidebar ul{
-    position: absolute;
-    height: 100%;
+.wrapper .sidebar h2{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
 }
-.sidebar ul li{
-    list-style: none;
-}
-.sidebar ul li:hover{
-    background: #f3f3f3 ;
+.wrapper .sidebar ul li{
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 05);
 }
 
-.sidebar .screenpersonal ul li a .text{
-    color: #B11830;
-}
-.sidebar ul li a{
+.wrapper .sidebar ul li a{
     position: relative;
     display: flex;
     white-space: nowrap;
     text-decoration: none;
 }
-.sidebar ul li a .icon{
+
+.wrapper .sidebar ul li a .icon{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 60px;
-    height: 60px;
+    height: 30px;
     font-size: 1.5em;
     color: #000000;
 }
-.sidebar ul li a .text{
+
+.wrapper .sidebar ul li a .text{
     position: relative;
-    height: 60px;
+    height: 30px;
     display: flex;
     align-items: center;
     font-size: 1em;
-    color: #fff 0.05em;
+    color: #000000;
     text-transform: 0.05em;
     letter-spacing: 0.05em;
-}
-.sidebar ul li .logo{
-    margin-bottom: 50px;
-}
-.sidebar ul li .logo:hover{
-   background: #fff;
-}
-.sidebar ul li .logo .icon{
-    font-size: 2em;
-}
-.sidebar ul li .logo .text{
-    font-size: 1.2em;
-    font-weight: 500;
 
 }
-.bottom{
+
+.wrapper .sidebar ul li:hover{
+    background: #fff;
+}
+
+.wrapper .sidebar ul li:hover a{
+    color: #fff;
+}
+
+.wrapper .sidebar .Out a{
     position: absolute;
-    bottom: 15%;
-    width: 100%;
+    bottom: 50px;
+    display: flex;
 }
 
 
-#toolbar {
-    width: 85%; 
-    height: 60px;
-    background-color: #B11830;
+.wrapper .sidebar .Out a .icon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    height: 30px;
+    font-size: 1.5em;
+    color: #000000;
+
+}
+
+.wrapper .sidebar .Out a .text{
+    position: relative;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: #000000;
+    text-transform: 0.05em;
+    letter-spacing: 0.05em;
+
+}
+
+
+.wrapper .sidebar .Out a:hover{
+    color: #fff;
+}
+
+.wrapper .main_content{
+    width: 100%;
+    margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+    padding: 20px;
+    background: #B11830;
     color: #fff;
     text-align: center;
-    line-height: 50px; 
-    float: right;
+}
+.info{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
 }

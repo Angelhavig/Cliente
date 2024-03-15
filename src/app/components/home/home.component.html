@@ -1,81 +1,59 @@
+
 <body>
-<div class="sidebar">
-    <ul>
-        <li class="logo">
-            <a href="#">
-                <span class="icon"></span>
-                <span class="text">UJED</span>
-            </a>
-        </li>
-        <div class="bottom">
-            <li>
-                <a href="#">
-                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="logout"></mat-icon></span>
-                    <span class="text">Log Out</span>
+    <div class="wrapper">
+        <div class="sidebar">
+            <H2>sidebar</H2>
+            <ul>
+                <li>
+                    <a href="#" routerLink="/Home">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Personal">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></span>
+                        <span class="text">Personal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Contratos"  >
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon></span>
+                        <span class="text">Contratos</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Agregar-Personal">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person_add"></mat-icon></span>
+                        <span class="text">Agregar personal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Generar-Contrato">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="note_add"></mat-icon></span>
+                        <span class="text">Generar contrato</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Ajustes">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="manage_accounts"></mat-icon></span>
+                        <span class="text">Ajustes</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="Out">
+                <a href="">
+                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon"fontIcon="home"></mat-icon></span>
+                    <span class="text">Home</span>
                 </a>
-            </li>
+            </div>
         </div>
-
-    </ul>
-</div>
-<div id="toolbar"><p>Sistema de Contratos UJED</p></div> <!-- Toolbar -->
-
-<div id="content">
-    <div class="contenedor-tarjetas">
-      <!-- Primera fila -->
-      <div class="tarjeta" routerLink="/Personal">
-          <div class="imagen">
-              <img src="imagen1.jpg" alt="Imagen 1"> <!-- Reemplaza "imagen1.jpg" con la ruta de tu imagen -->
-          </div>
-          <div class="texto">
-              Visualizar Personal
-          </div>
-      </div>
-  
-      <div class="tarjeta" routerLink="/Login">
-          <div class="imagen">
-              <img src="imagen2.jpg" alt="Imagen 2"> <!-- Reemplaza "imagen2.jpg" con la ruta de tu imagen -->
-          </div>
-          <div class="texto">
-              Visualizar Contratos
-          </div>
-      </div>
-  
-      <div class="tarjeta" routerLink="/Login">
-          <div class="imagen">
-              <img src="imagen3.jpg" alt="Imagen 3"> <!-- Reemplaza "imagen3.jpg" con la ruta de tu imagen -->
-          </div>
-          <div class="texto">
-              Agregar Nuevo Perosonal
-          </div>
-      </div>
-  
-      <!-- Segunda fila -->
-      <div class="tarjeta" routerLink="/Login">
-          <div class="imagen">
-              <img src="imagen4.jpg" alt="Imagen 4"> <!-- Reemplaza "imagen4.jpg" con la ruta de tu imagen -->
-          </div>
-          <div class="texto">
-              Generar Nuevo Contrato
-          </div>
-      </div>
-  
-      <div class="tarjeta" routerLink="/Login">
-          <div class="imagen">
-              <img src="imagen5.jpg" alt="Imagen 5"> <!-- Reemplaza "imagen5.jpg" con la ruta de tu imagen -->
-          </div>
-          <div class="texto">
-              Configuracion
-          </div>
-      </div>
-      
-  </div>
-  <div class="date">
-    Fecha: {{ fecha }} {{ hora }}
-  </div>
-  <div>
-
-  </div>
-</div> <!-- Contenedor de contenido -->
-
+        <div class="main_content">
+            <div class="header">Sistema de Contratos Ujed</div>
+            <div class="info">
+                Hola Hola
+            </div>
+            
+        </div>
+    </div>
 </body>

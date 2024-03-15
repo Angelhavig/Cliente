@@ -1,59 +1,194 @@
 
-<div id="toolbar"><p>Sistema de Contratos UJED</p></div> <!-- Toolbar -->
-<div class="sidebar">
-    <ul>
-        <li class="logo">
-            <a href="#">
-                <span class="icon"></span>
-                <span class="text">UJED</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" routerLink="/Home">
-                <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></span>
-                <span class="text">Home</span>
-            </a>
-        </li>
-        <li >
-            <a href="#" routerLink="/Personal">
-                <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></span>
-                <span class="text">Personal</span>
-            </a>
-        </li>
-        <li >
-            <a href="#" routerLink="/Contratos"  >
-                <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon></span>
-                <span class="text">Contratos</span>
-            </a>
-        </li>
-        <li >
-            <a href="#" routerLink="/Agregar-Personal">
-                <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person_add"></mat-icon></span>
-                <span class="text">Agregar personal</span>
-            </a>
-        </li>
-        <li >
-            <a href="#" routerLink="/Generar-Contrato">
-                <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="note_add"></mat-icon></span>
-                <span class="text">Generar contrato</span>
-            </a>
-        </li>
-        <li >
-            <a href="#" routerLink="/Ajustes">
-                <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="manage_accounts"></mat-icon></span>
-                <span class="text">Ajustes</span>
-            </a>
-        </li>
-        <div class="bottom">
-            <li>
-                <a href="#">
-                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="logout"></mat-icon></span>
-                    <span class="text">Log Out</span>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <H2>sidebar</H2>
+            <ul>
+                <li>
+                    <a href="#" routerLink="/Home">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Personal">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></span>
+                        <span class="text">Personal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Contratos"  >
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon></span>
+                        <span class="text">Contratos</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Agregar-Personal">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person_add"></mat-icon></span>
+                        <span class="text">Agregar personal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Generar-Contrato">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="note_add"></mat-icon></span>
+                        <span class="text">Generar contrato</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Ajustes">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="manage_accounts"></mat-icon></span>
+                        <span class="text">Ajustes</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="Out">
+                <a href="">
+                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon"fontIcon="home"></mat-icon></span>
+                    <span class="text">Home</span>
                 </a>
-            </li>
+            </div>
         </div>
 
-    </ul>
-</div>
+        
+        <div class="main_content">
+            <div class="header">Sistema de Contratos Ujed</div>
+            <div class="content">
+                <div class="info">
+                    <div>/Personal</div>
+                    <div>Fecha</div>
+                </div>
 
 
+
+
+                <div class="actions">
+                    
+                    <mat-card>
+                        <div class="tools">
+                            <mat-form-field class="filter">
+                                <mat-label>Filter</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+                            </mat-form-field>
+                            <button mat-fab color="primary" (click)="add()">
+                                <mat-icon >add_circle</mat-icon>
+                            </button>
+                        </div>
+                    
+                        <table mat-table [dataSource]="dataSource" matSort>
+                    
+                            <!--- Note that these columns can be defined in any order.
+                                  The actual rendered columns are set as a property on the row definition" -->
+                    
+                            <!-- Position Column -->
+                            <ng-container matColumnDef="id_Personal">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
+                                <td mat-cell *matCellDef="let element"> {{element.id_Personal}} </td>
+                            </ng-container>
+                    
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="Nombre_Personal">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Nombre_Personal}} </td>
+                            </ng-container>
+                    
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="Apellido_Personal">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Apellido_Personal}} </td>
+                            </ng-container>
+                    
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="Telefono">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefono </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Telefono}} </td>
+                            </ng-container>
+                    
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="Correo">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Correo}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="Nacionalidad">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nacionalidad </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Nacionalidad}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="CURP">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> CURP </th>
+                                <td mat-cell *matCellDef="let element"> {{element.CURP}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="RFC">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> RFC </th>
+                                <td mat-cell *matCellDef="let element"> {{element.RFC}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="CP">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> CP </th>
+                                <td mat-cell *matCellDef="let element"> {{element.CP}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="Calle">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Calle </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Calle}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="Colonia">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Colonia </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Colonia}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="NumeroIn">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> NumeroIn </th>
+                                <td mat-cell *matCellDef="let element"> {{element.NumeroIn}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="NumeroEx">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> NumeroEx </th>
+                                <td mat-cell *matCellDef="let element"> {{element.NumeroEx}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="Estado">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Estado}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="Municipio">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Municipio </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Municipio}} </td>
+                            </ng-container>
+
+                    
+                            <!-- Button Delete Column -->
+                            <ng-container matColumnDef="acciones">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+                                <td mat-cell *matCellDef="let element"> 
+                                    <mat-icon class="btnicon" (click)="element.id_Personal !== undefined ? edit(element.id_Personal) : null" matTooltip="editar">edit</mat-icon>
+                                    <mat-icon class="btnicon" (click)="element.id_Personal !== undefined ? detalles(element.id_Personal, element.Nombre_Personal) : null" matTooltip="ver">visibility</mat-icon>
+                                    <mat-icon class="btnicon" (click)="element.id_Personal !== undefined ? delete(element.id_Personal, element.Nombre_Personal) : null" matTooltip="eliminar">delete</mat-icon>
+                                </td>
+                            </ng-container>
+                    
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                        </table>
+                        <mat-paginator [pageSizeOptions]="[3]" showFirstLastButtons aria-label="Select page of periodic elements">
+                        </mat-paginator>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

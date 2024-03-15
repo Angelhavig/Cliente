@@ -1,129 +1,118 @@
- body{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    list-style: none;
+    text-decoration: none;
 }
-
-.sidebar{
-    position: absolute;
-    width: 250px;
+body{
+    background: #f3f5f9;
+}
+.wrapper{
+    display: flex;
+    position: relative;
+}
+.wrapper .sidebar{
+    position: fixed;
+    width: 200px;
     height: 100%;
     background: #B11830;
+    padding: 30px 0;
 }
 
-.sidebar ul{
-    position: absolute;
-    height: 100%;
+.wrapper .sidebar h2{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
 }
-.sidebar ul li{
-    list-style: none;
+.wrapper .sidebar ul li{
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 05);
 }
-.sidebar ul li:hover{
-    background: #f3f3f3 ;
-}
-.sidebar ul li a{
+
+.wrapper .sidebar ul li a{
     position: relative;
     display: flex;
     white-space: nowrap;
     text-decoration: none;
 }
-.sidebar ul li a .icon{
+
+.wrapper .sidebar ul li a .icon{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 60px;
-    height: 60px;
+    height: 30px;
     font-size: 1.5em;
     color: #000000;
 }
-.sidebar ul li a .text{
+
+.wrapper .sidebar ul li a .text{
     position: relative;
-    height: 60px;
+    height: 30px;
     display: flex;
     align-items: center;
     font-size: 1em;
-    color: #333 0.05em;
+    color: #000000;
     text-transform: 0.05em;
     letter-spacing: 0.05em;
-}
-.sidebar ul li .logo{
-    margin-bottom: 50px;
-}
-.sidebar ul li .logo:hover{
-   background: #fff;
-}
-.sidebar ul li .logo .icon{
-    font-size: 2em;
-}
-.sidebar ul li .logo .text{
-    font-size: 1.2em;
-    font-weight: 500;
 
 }
-.bottom{
-    position: absolute;
-    bottom: 15%;
-    width: 100%;
+
+.wrapper .sidebar ul li:hover{
+    background: #fff;
 }
 
-
-
-
-
-/* Estilo para el toolbar */
-#toolbar {
-    width: 85%; /* Ancho del 80% del viewport */
-    height: 60px; /* Altura fija de 50px */
-    background-color: #B11830;
+.wrapper .sidebar ul li:hover a{
     color: #fff;
-    text-align: center; /* Centrar el texto horizontalmente */
-    line-height: 50px; /* Altura de línea igual a la altura del elemento */
-    float: right; /* Hacer flotar a la derecha */
 }
-/* Estilo para el contenedor de contenido */
-#content {
-    margin: 20px 20px 20px 20px; /* Margen exterior de 20px */
-    width: calc(80% - 20px); /* Ancho del 80% del viewport menos los márgenes */
-    height: calc(90% - 70px); /* Altura del viewport menos la altura del toolbar y los márgenes */
-    float: right; /* Hacer flotar a la derecha */
-    
-}
-f
 
-p{
-    size: 50px;
-    
-}
-.contenedor-tarjetas{
+.wrapper .sidebar .Out a{
+    position: absolute;
+    bottom: 50px;
     display: flex;
-    flex-wrap: wrap;
-    align-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
 }
-/* Estilo para la tarjeta */
-.tarjeta {
-    width: calc(30%); /* Ancho de la tarjeta (50% del contenedor menos el espacio entre ellas) */
-    height: 200px; /* Altura de la tarjeta */
-    border-radius: 10px; /* Bordes redondeados */
-    border: 1px solid #ccc; /* Borde sólido de color gris */
+
+
+.wrapper .sidebar .Out a .icon{
+    position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #D9D9D9;
-    cursor: pointer;
+    min-width: 60px;
+    height: 30px;
+    font-size: 1.5em;
+    color: #000000;
+
 }
 
-.date{
-    margin-top: 20px;
+.wrapper .sidebar .Out a .text{
+    position: relative;
+    height: 30px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    align-items: center;
+    font-size: 1em;
+    color: #000000;
+    text-transform: 0.05em;
+    letter-spacing: 0.05em;
 
+}
+
+
+.wrapper .sidebar .Out a:hover{
+    color: #fff;
+}
+
+.wrapper .main_content{
+    width: 100%;
+    margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+    padding: 20px;
+    background: #B11830;
+    color: #fff;
+    text-align: center;
 }
