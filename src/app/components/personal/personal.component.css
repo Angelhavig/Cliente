@@ -6,7 +6,7 @@
     text-decoration: none;
 }
 body{
-    background: #f3f5f9;
+    background: #fff;
 }
 .wrapper{
     display: flex;
@@ -108,6 +108,7 @@ body{
 .wrapper .main_content{
     width: 100%;
     margin-left: 200px;
+    position: relative;
 }
 
 .wrapper .main_content .header{
@@ -131,6 +132,103 @@ body{
     margin: 20px;
 }
 
+
+
+
 .actions{
-    overflow: hidden;
+    margin: 20px;
+    height: 100%;
+    max-width: 100%;
+    overflow: auto;
 }
+
+.table{
+    width: 100%;
+
+}
+
+.table_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.table_header p{
+    color: #000000;
+}
+
+button{
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px;
+
+
+}
+
+.add_new{
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #0298cf;
+}
+input{
+    padding: 10px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #0298cf;
+}
+.table_section{
+    height: 650px;
+    overflow: auto;
+}
+table{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+thead th{
+    position: sticky;
+    top: 0;
+    font-size: 10px;
+    padding: 5px;
+    text-align: center;
+}
+th,td{
+    border-bottom: 1px solid #fff;
+    padding: 5px;
+    word-break: break-all;
+    text-align: center;
+    font-size: 10px;
+}
+
+::placeholder{
+    color: #0298cf;
+}
+.btnactions {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    align-items: center; /* Centra los botones verticalmente */
+    margin-left: 40px;
+  }
+  
+  .btnactions button {
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 10px;
+
+  }
+  
+  .btnactions button .btnicon {
+    font-size: 20px; /* Tamaño del ícono */
+    color: #000; /* Color del ícono */
+  }
+  
+  .btnactions button:hover .btnicon {
+    color: #0298cf; /* Cambia el color del ícono al pasar el ratón sobre él */
+  }

@@ -72,8 +72,19 @@ export class PersonalComponent  implements OnInit, AfterViewInit{
   add(){
 
   }
-  detalles(id_Personal: number, Nombre_Personal: string){}
-  edit(id_Personal?: number){}
-  delete(id_Personal: number, Nombre_Personal: string){}
+  detalles(id_Personal?: number, Nombre_Personal?: string) {
+    // Implementa la lógica para mostrar los detalles del personal con el id_Personal proporcionado
+    console.log('Detalles:', id_Personal, Nombre_Personal);
+  }
+
+  edit(id_Personal?: number) {
+    // Implementa la lógica para editar el personal con el id_Personal proporcionado
+    console.log('Editar:', id_Personal);
+  }
+
+  delete(id_Personal?: number, Nombre_Personal?: string) {
+    // Implementa la lógica para eliminar el personal con el id_Personal proporcionado
+    console.log('Eliminar:', id_Personal, Nombre_Personal);
+  }
 
 }
