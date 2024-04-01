@@ -55,7 +55,7 @@ body{
     display: flex;
     align-items: center;
     font-size: 1em;
-    color: #000000;
+    color: #fff;
     text-transform: 0.05em;
     letter-spacing: 0.05em;
 
@@ -67,6 +67,10 @@ body{
 
 .wrapper .sidebar ul li:hover a{
     color: #fff;
+}
+
+.wrapper .sidebar ul li:hover a .text{
+    color: #000000;
 }
 
 .wrapper .sidebar .Out a{
@@ -84,7 +88,7 @@ body{
     min-width: 60px;
     height: 30px;
     font-size: 1.5em;
-    color: #000000;
+    color: #fff;
 
 }
 
@@ -94,7 +98,7 @@ body{
     display: flex;
     align-items: center;
     font-size: 1em;
-    color: #000000;
+    color: #fff;
     text-transform: 0.05em;
     letter-spacing: 0.05em;
 
@@ -104,6 +108,11 @@ body{
 .wrapper .sidebar .Out a:hover{
     color: #fff;
 }
+
+.wrapper .sidebar .Out a:hover .text{
+    color: #000000;
+}
+
 
 .wrapper .main_content{
     width: 100%;
@@ -116,6 +125,7 @@ body{
     background: #B11830;
     color: #fff;
     text-align: center;
+    font-size: 20px;
 }
 
 .info{

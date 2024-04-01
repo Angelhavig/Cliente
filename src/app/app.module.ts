@@ -39,6 +39,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { InformationComponent } from './components/information/information.component';
+
 
 
 
@@ -53,6 +56,7 @@ import { MatInputModule } from '@angular/material/input';
     ContratosComponent,
     AddcontratosComponent,
     AjustesComponent,
+    InformationComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,7 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     MatCardModule,
     MatToolbarModule,
+    MatTooltipModule,
     ReactiveFormsModule,
     MatSnackBarModule,
     MatDialogModule,

@@ -62,14 +62,14 @@ body {
 .container form .btn{
   margin-left: 50%;
   transform: translateX(-50%);
-  width: 150px;
-  height: 30px;
+  width: 200px;
+  height: 35px;
   border-radius: 19px;
   border: none;
   outline: none;
   background: #A60303;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
   color: white;
 

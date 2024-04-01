@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Personal } from 'src/app/interfaces/personal';
 import { PersonalService } from 'src/app/services/personal.service';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
@@ -85,6 +85,12 @@ export class PersonalComponent  implements OnInit, AfterViewInit{
   delete(id_Personal?: number, Nombre_Personal?: string) {
     // Implementa la lógica para eliminar el personal con el id_Personal proporcionado
     console.log('Eliminar:', id_Personal, Nombre_Personal);
+  }
+
+  information(Correo?: string) {
+    // Implementa la lógica para eliminar el personal con el id_Personal proporcionado
+    this.router.navigate(['Informacion/', Correo]);
+    console.log('Eliminar:', Correo);
   }
 
 }

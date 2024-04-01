@@ -7,19 +7,13 @@
                 <li>
                     <a href="#" routerLink="/Home">
                         <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></span>
-                        <span class="text">Home</span>
+                        <span class="text">Pagina Principal</span>
                     </a>
                 </li>
                 <li >
                     <a href="#" routerLink="/Personal">
                         <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></span>
-                        <span class="text">Personal</span>
-                    </a>
-                </li>
-                <li >
-                    <a href="#" routerLink="/Contratos"  >
-                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon></span>
-                        <span class="text">Contratos</span>
+                        <span class="text">Datos Personal</span>
                     </a>
                 </li>
                 <li >
@@ -29,9 +23,9 @@
                     </a>
                 </li>
                 <li >
-                    <a href="#" routerLink="/Generar-Contrato">
-                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="note_add"></mat-icon></span>
-                        <span class="text">Generar contrato</span>
+                    <a href="#" routerLink="/Contratos"  >
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon></span>
+                        <span class="text">Datos Contratos</span>
                     </a>
                 </li>
                 <li >
@@ -43,9 +37,8 @@
             </ul>
             <div class="Out">
                 <a href="">
-                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon"fontIcon="home"></mat-icon></span>
-                    <span class="text">Log Out
-                    </span>
+                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon"fontIcon="logout"></mat-icon></span>
+                    <span class="text">Cerrar Sesion</span>
                 </a>
             </div>
         </div>
@@ -65,53 +58,34 @@
                         <p>Personal</p>
                         <div>
                             <input placeholder="personal">
-                            <button class="add_new">add new</button>
                         </div>
                     </div>
                     <div class="table_section">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido</th>
+                                    <th>Nombre Completo</th>
                                     <th>Telefono</th>
                                     <th>Correo</th>
                                     <th>Nacionalidad</th>
                                     <th>CURP</th>
                                     <th>RFC</th>
-                                    <th>CP</th>
-                                    <th>Calle</th>
-                                    <th>Colonia</th>
-                                    <th>Numero Interior</th>
-                                    <th>Numero Exterior</th>
-                                    <th>Estado</th>
-                                    <th>Municipio</th>
-                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of dataSource.data">
-                                    <td>{{ item.id_Personal }}</td>
-                                    <td>{{ item.Nombre_Personal }}</td>
-                                    <td>{{ item.Apellido_Personal }}</td>
+                                    <td>{{ item.Apellido_Personal }} {{ item.Nombre_Personal }}</td>
                                     <td>{{ item.Telefono }}</td>
                                     <td>{{ item.Correo }}</td>
                                     <td>{{ item.Nacionalidad }}</td>
                                     <td>{{ item.CURP }}</td>
                                     <td>{{ item.RFC }}</td>
-                                    <td>{{ item.CP }}</td>
-                                    <td>{{ item.Calle }}</td>
-                                    <td>{{ item.Colonia }}</td>
-                                    <td>{{ item.NumeroIn }}</td>
-                                    <td>{{ item.NumeroEx }}</td>
-                                    <td>{{ item.Estado }}</td>
-                                    <td>{{ item.Municipio }}</td>
                                     <td>
                                         <div class="btnactions">
                                         <button (click)="delete(item.id_Personal, item.Nombre_Personal)"><mat-icon class="btnicon" matTooltip="eliminar">delete</mat-icon></button>
-                                        <button (click)="edit(item.id_Personal)"><mat-icon class="btnicon" matTooltip="editar">edit</mat-icon></button>
-                                        <button (click)="detalles(item.id_Personal, item.Nombre_Personal)"><mat-icon class="btnicon" matTooltip="detalles">add</mat-icon></button>
+                                        <button (click)="edit(item.id_Personal)"><mat-icon class="btnicon" matTooltip="Editar: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">edit</mat-icon></button>
+                                        <button (click)="detalles(item.id_Personal, item.Nombre_Personal)"><mat-icon class="btnicon" matTooltip="Contrato: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">add</mat-icon></button>
+                                        <button (click)="information(item.Correo)"><mat-icon class="btnicon" matTooltip="Detalles: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">info</mat-icon></button>
                                         </div>
                                     </td>
                                 </tr>

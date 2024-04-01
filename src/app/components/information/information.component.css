@@ -6,7 +6,7 @@
     text-decoration: none;
 }
 body{
-    background: #f3f5f9;
+    background: #fff;
 }
 .wrapper{
     display: flex;
@@ -140,4 +140,14 @@ body{
     align-content: center;
     align-items: center;
     margin: 20px;
+}
+
+
+
+
+.actions{
+    margin: 20px;
+    height: 100%;
+    max-width: 100%;
+    overflow: auto;
 }
