@@ -161,7 +161,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .table_header p{
@@ -222,7 +222,7 @@ th,td{
     display: flex;
     justify-content: center; /* Centra los botones horizontalmente */
     align-items: center; /* Centra los botones verticalmente */
-    margin-left: 40px;
+    margin-left: 10px;
   }
   
   .btnactions button {

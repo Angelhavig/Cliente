@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Personal, PersonalData } from '../interfaces/personal';
+import { Personal, PersonalData, PersonalE } from '../interfaces/personal';
 import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
@@ -30,4 +30,32 @@ export class PersonalService {
       })
     );
    }
+
+   getInfoPerfil(id: number): Observable<Personal>{
+    return this.http.get<Personal>(this.myAppUrl +'api/peticiones/Personal/info/' + id).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        return throwError(error);
+      })
+    );
+   }
+
+   getInfoE(id: number): Observable<PersonalE>{
+    return this.http.get<PersonalE>(this.myAppUrl +'api/peticiones/Personal/informacion/' + id).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        return throwError(error);
+      })
+    );
+   }
+
+   editPersonal(id:number, personal: PersonalData): Observable<void>{
+    return this.http.put<void>(this.myAppUrl + this.myApiUrl + id, personal).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        return throwError(error);
+      })
+    );
+   }
+
 }

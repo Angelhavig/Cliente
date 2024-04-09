@@ -10,6 +10,7 @@ import { ContratosComponent } from './components/contratos/contratos.component';
 import { AddcontratosComponent } from './components/addcontratos/addcontratos.component';
 import { AjustesComponent } from './components/ajustes/ajustes.component';
 import { InformationComponent } from './components/information/information.component';
+import { EditpersonalComponent } from './components/editpersonal/editpersonal.component';
 
 const routes: Routes = [
   //Ruta por defecto
@@ -19,9 +20,10 @@ const routes: Routes = [
   { path: 'Personal', component: PersonalComponent, canActivate: [AuthGuard] },
   { path: 'Agregar-Personal', component: AddpersonalComponent, canActivate: [AuthGuard] },
   { path: 'Contratos', component: ContratosComponent, canActivate: [AuthGuard] },
-  { path: 'Generar-Contrato', component: AddcontratosComponent, canActivate: [AuthGuard] },
+  { path: 'Generar-Contrato/:id', component: AddcontratosComponent, canActivate: [AuthGuard] },
   { path: 'Ajustes', component: AjustesComponent, canActivate: [AuthGuard] },
-  { path: 'Informacion/:id', component: InformationComponent, canActivate: [AuthGuard] },
+  { path: 'Informacion/:id/:Correo', component: InformationComponent, canActivate: [AuthGuard] },
+  { path: 'EditarInformacion/:id', component: EditpersonalComponent, canActivate: [AuthGuard] },
   { path: 'Login', component: LoginComponent },
   { path: 'Error', component: ErrorComponent},
   { path: '**',  redirectTo: '/Error'},

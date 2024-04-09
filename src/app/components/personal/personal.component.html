@@ -84,8 +84,8 @@
                                         <div class="btnactions">
                                         <button (click)="delete(item.id_Personal, item.Nombre_Personal)"><mat-icon class="btnicon" matTooltip="eliminar">delete</mat-icon></button>
                                         <button (click)="edit(item.id_Personal)"><mat-icon class="btnicon" matTooltip="Editar: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">edit</mat-icon></button>
-                                        <button (click)="detalles(item.id_Personal, item.Nombre_Personal)"><mat-icon class="btnicon" matTooltip="Contrato: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">add</mat-icon></button>
-                                        <button (click)="information(item.Correo)"><mat-icon class="btnicon" matTooltip="Detalles: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">info</mat-icon></button>
+                                        <button (click)="generar(item.id_Personal)"><mat-icon class="btnicon" matTooltip="Contrato: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">add</mat-icon></button>
+                                        <button (click)="information(item.id_Personal, item.Correo)"><mat-icon class="btnicon" matTooltip="Detalles: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">info</mat-icon></button>
                                         </div>
                                     </td>
                                 </tr>

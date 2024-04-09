@@ -1,0 +1,139 @@
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <H2>sidebar</H2>
+            <ul>
+                <li>
+                    <a href="#" routerLink="/Home">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></span>
+                        <span class="text">Pagina Principal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Personal">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></span>
+                        <span class="text">Datos Personal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Agregar-Personal">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person_add"></mat-icon></span>
+                        <span class="text">Agregar personal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Contratos"  >
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon></span>
+                        <span class="text">Datos Contratos</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Ajustes">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="manage_accounts"></mat-icon></span>
+                        <span class="text">Ajustes</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="Out">
+                <a href="">
+                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon"fontIcon="logout"></mat-icon></span>
+                    <span class="text">Cerrar Sesion</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="main_content">
+            <div class="header">Sistema de Contratos Ujed</div>
+            <div class="content">
+                <div class="info">
+                    <div>/Editar</div>
+                    <div>Fecha</div>
+                </div>
+
+                <div class="actions">
+                    <H1>Formulario de registro</H1>
+                    <form [formGroup]="form" (ngSubmit)="addPersonal()" class="form">
+                        <div class="input-box">
+                            <label for="nombreCompleto">Nombre Completo</label>
+                            <input formControlName="Nombre_Personal" type="text" id="Nombre_Personal" placeholder="Nombre Completo" />
+                        </div>
+                        <div class="input-box">
+                            <label for="apellidoCompleto">Apellido Completo</label>
+                            <input formControlName="Apellido_Personal" type="text" id="Apellido_Personal" placeholder="Apellido Completo" />
+                        </div>
+                    
+                        <div class="input-box">
+                            <label for="telefono">Teléfono</label>
+                            <input formControlName="Telefono" type="text"  id="Telefono" placeholder="Teléfono"  />
+                        </div>
+                    
+                        <div class="input-box">
+                            <label for="correo">Correo</label>
+                            <input  formControlName="Correo" type="email" id="correo" placeholder="Correo" />
+                        </div>
+                    
+                        <div class="input-box">
+                            <label for="nacionalidad">Nacionalidad</label>
+                            <input formControlName="Nacionalidad" type="text" id="nacionalidad" placeholder="Nacionalidad"  />
+                        </div>
+                    
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="curp">CURP</label>
+                                <input formControlName="CURP" type="text" id="curp" placeholder="CURP" />
+                            </div>
+                    
+                            <div class="input-box">
+                                <label for="rfc">RFC</label>
+                                <input  formControlName="RFC" type="text" id="rfc" placeholder="RFC" />
+                            </div>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="cp">CP</label>
+                            <input  formControlName="CP" type="text" id="cp" placeholder="CP" />
+                        </div>
+                    
+                        <div class="input-box">
+                            <label for="calle">Calle</label>
+                            <input formControlName="Calle" type="text" id="calle" placeholder="Calle" />
+                        </div>
+                        
+                        <div class="input-box">
+                            <label for="colonia">Colonia</label>
+                            <input formControlName="Colonia" type="text" id="colonia" placeholder="Colonia" />
+                        </div>
+                    
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="numeroInterior">Número Interior</label>
+                                <input formControlName="NumeroIn" type="text" id="numeroInterior" placeholder="Número Interior" />
+                            </div>
+                    
+                            <div class="input-box">
+                                <label for="numeroExterior">Número Exterior</label>
+                                <input  formControlName="NumeroEx" type="text" id="numeroExterior" placeholder="Número Exterior" />
+                            </div>
+                        </div>
+                    
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="estado">Estado</label>
+                                <input formControlName="Estado" type="text" id="estado" placeholder="Estado"  />
+                            </div>
+                    
+                            <div class="input-box">
+                                <label for="municipio">Municipio</label>
+                                <input formControlName="Municipio" type="text" id="municipio" placeholder="Municipio" />
+                            </div>
+                        </div>
+
+                        <button>Crear Registro Nuevo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>

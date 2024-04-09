@@ -51,21 +51,15 @@
                     <div>Fecha</div>
                 </div>
 
-                <div class="actions">
-                    <h1>Informacion del registro de personal</h1>
-                    <p>Nombres:</p>
-                    <p>Apellidos: </p>
-                    <p>Telefono: </p>
-                    <p>Correo: </p>
-                    <p>Nacionalidad: </p>
-                    <p>CURP: </p>
-                    <p>RFC: </p>
-                    <p>CP: </p>
-                    <p>Calle: </p>
-                    <p>Colonia: </p>
-                    <p>Numero Interior: </p>
-                    <p>Numero Exterior: </p>
-                    
+                <div class="actions" *ngFor="let per of personal">
+                        <p>Nombre completo: {{per.Apellido_Personal}} {{per.Nombre_Personal}}</p>
+                        <p>Telefono: {{per.Telefono}}</p>
+                        <p>Correo: {{per.Correo}}</p>
+                        <p>Nacionalidad: {{per.Nacionalidad}}</p>
+                        <p>CURP: {{per.CURP}} RFC: {{per.RFC}}</p>
+                        <p>{{per.Telefono}}</p>
+                        <p>Domicilio en calle {{per.calle}} Numero In {{per.NumeroIn}} Ex {{per.NumeroEx}},Colonia {{per.Colonia}},CP {{per.cp}} </p>
+                        <P>{{per.Estado}},{{per.Municipio}}</P>
                 </div>
             </div>
         </div>

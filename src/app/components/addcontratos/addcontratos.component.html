@@ -7,19 +7,13 @@
                 <li>
                     <a href="#" routerLink="/Home">
                         <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></span>
-                        <span class="text">Home</span>
+                        <span class="text">Pagina Principal</span>
                     </a>
                 </li>
                 <li >
                     <a href="#" routerLink="/Personal">
                         <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></span>
-                        <span class="text">Personal</span>
-                    </a>
-                </li>
-                <li >
-                    <a href="#" routerLink="/Contratos"  >
-                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon></span>
-                        <span class="text">Contratos</span>
+                        <span class="text">Datos Personal</span>
                     </a>
                 </li>
                 <li >
@@ -29,9 +23,9 @@
                     </a>
                 </li>
                 <li >
-                    <a href="#" routerLink="/Generar-Contrato">
-                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="note_add"></mat-icon></span>
-                        <span class="text">Generar contrato</span>
+                    <a href="#" routerLink="/Contratos"  >
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon></span>
+                        <span class="text">Datos Contratos</span>
                     </a>
                 </li>
                 <li >
@@ -43,8 +37,8 @@
             </ul>
             <div class="Out">
                 <a href="">
-                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon"fontIcon="home"></mat-icon></span>
-                    <span class="text">Log Out</span>
+                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon"fontIcon="logout"></mat-icon></span>
+                    <span class="text">Cerrar Sesion</span>
                 </a>
             </div>
         </div>
@@ -53,11 +47,117 @@
             <div class="header">Sistema de Contratos Ujed</div>
             <div class="content">
                 <div class="info">
-                    <div>/Generar nuevo contrato</div>
+                    <div>/Agregar nuevo personal</div>
                     <div>Fecha</div>
                 </div>
-                <div class="actions">
 
+                <div class="actions">
+                    <H1>Formulario de registro</H1>
+                    <form [formGroup]="form" (ngSubmit)="addContrato()" class="form">
+                        <div class="input-box">
+                            <label for="Funciones">Funciones</label>
+                            <input formControlName="Funciones" type="text" id="Funciones" placeholder="Funcion dentro del plantel" />
+                        </div>
+                    
+                        <div class="input-box">
+                            <label for="Adscrito">Adscrito</label>
+                            <input formControlName="Adscrito" type="text" id="Adscrito" placeholder="Adscrito" />
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Inicio">Inicio</label>
+                                <input formControlName="Inicio" type="text"  id="Inicio" placeholder="Inicio"  />
+                            </div>
+                        
+                            <div class="input-box">
+                                <label for="Termino">Termino</label>
+                                <input  formControlName="Termino" type="text" id="Termino" placeholder="Termino" />
+                            </div>
+                        </div>
+                       
+                    
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Sueldo">Sueldo</label>
+                                <input formControlName="Sueldo" type="text" id="Sueldo" placeholder="Sueldo en cantidad"  />
+                            </div>
+                            <div class="input-box">
+                                <label for="Sueldo_Escrito">Sueldo Escrito</label>
+                                <input formControlName="Sueldo_Escrito" type="text" id="Sueldo_Escrito" placeholder="Sueldo en palabras" />
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Nombre_T1">Nombre primer testigo</label>
+                                <input  formControlName="Nombre_T1" type="text" id="Nombre_T1" placeholder="Nombre_T1" />
+                            </div>
+                        
+                            <div class="input-box">
+                                <label for="Apellido_T1">Apellido primer testigo</label>
+                                <input  formControlName="Apellido_T1" type="text" id="Apellido_T1" placeholder="Apellido_T1" />
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Correo_T1">Correo primer testigo</label>
+                                <input formControlName="Correo_T1" type="text" id="Correo_T1" placeholder="Correo_T1" />
+                            </div>
+                            <div class="input-box">
+                                <label for="Telefono_T1">Telefono primer testigo</label>
+                                <input formControlName="Telefono_T1" type="text" id="Telefono_T1" placeholder="Telefono_T1" />
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Nombre_T2">Nombre segundo testigo</label>
+                                <input  formControlName="Nombre_T2" type="text" id="Nombre_T2" placeholder="Nombre_T2" />
+                            </div>
+                        
+                            <div class="input-box">
+                                <label for="Apellido_T2">Apellido segundo testigo</label>
+                                <input  formControlName="Apellido_T2" type="text" id="Apellido_T2" placeholder="Apellido_T2" />
+                            </div>
+                        </div>
+
+
+                        <div class="column">       
+                            <div class="input-box">
+                                <label for="Correo_T2">Correo segundo testigo</label>
+                                <input formControlName="Correo_T2" type="text" id="Correo_T2" placeholder="Correo_T2" />
+                            </div>
+    
+                            <div class="input-box">
+                                <label for="Telefono_T2">Telefono segundo testigo</label>
+                                <input formControlName="Telefono_T2" type="text" id="Telefono_T2" placeholder="Telefono_T2" />
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Directora">Directora</label>
+                                <input formControlName="Directora" type="text" id="Directora" placeholder="Directora" />
+                            </div>
+                    
+                            <div class="input-box">
+                                <label for="Contraloria">Contraloria</label>
+                                <input  formControlName="Contraloria" type="text" id="Contraloria" placeholder="Contraloria" />
+                            </div>
+                        </div>
+                    
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Tesorero">Tesorero</label>
+                                <input formControlName="Tesorero" type="text" id="Tesorero" placeholder="Tesorero"  />
+                            </div>
+                    
+                            <div class="input-box">
+                                <label for="Fecha_Creacion">Fecha creacion</label>
+                                <input formControlName="Fecha_Creacion" type="text" id="Fecha_Creacion" placeholder="Fecha_Creacion" />
+                            </div>
+                        </div>
+
+
+                        <button>Crear Registro Nuevo</button>
+                    </form>
                 </div>
             </div>
         </div>

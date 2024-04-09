@@ -14,23 +14,7 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
   styleUrls: ['./personal.component.css'],
 })
 export class PersonalComponent  implements OnInit, AfterViewInit{
-  displayedColumns: string[] = [
-    'id_Personal',
-    'Nombre_Personal',
-    'Apellido_Personal',
-    'Telefono',
-    'Correo',
-    'Nacionalidad',
-    'CURP',
-    'RFC',
-    'CP',
-    'Calle',
-    'Colonia',
-    'NumeroIn',
-    'NumeroEx',
-    'Estado',
-    'Municipio',
-  ];
+
 
   dataSource = new MatTableDataSource<Personal>();
 
@@ -72,14 +56,15 @@ export class PersonalComponent  implements OnInit, AfterViewInit{
   add(){
 
   }
-  detalles(id_Personal?: number, Nombre_Personal?: string) {
-    // Implementa la lógica para mostrar los detalles del personal con el id_Personal proporcionado
-    console.log('Detalles:', id_Personal, Nombre_Personal);
+  generar(id_Personal?: number) {
+
+    this.router.navigate(['Generar-Contrato', id_Personal]);
   }
 
-  edit(id_Personal?: number) {
+  edit(id?: number) {
     // Implementa la lógica para editar el personal con el id_Personal proporcionado
-    console.log('Editar:', id_Personal);
+    console.log('EditarInformacion', id);
+    this.router.navigate(['EditarInformacion', id]);
   }
 
   delete(id_Personal?: number, Nombre_Personal?: string) {
@@ -87,10 +72,8 @@ export class PersonalComponent  implements OnInit, AfterViewInit{
     console.log('Eliminar:', id_Personal, Nombre_Personal);
   }
 
-  information(Correo?: string) {
-    // Implementa la lógica para eliminar el personal con el id_Personal proporcionado
-    this.router.navigate(['Informacion/', Correo]);
-    console.log('Eliminar:', Correo);
+  information(id?: number, Correo?: string) {
+    this.router.navigate(['Informacion',id, Correo]);
   }
 
 }

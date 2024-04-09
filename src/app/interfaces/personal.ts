@@ -32,3 +32,21 @@ export interface PersonalData{
     Estado?: string,
     Municipio?: string
 }
+
+
+export interface PersonalE{
+    Nombre_Personal?: string,
+    Apellido_Personal? : string,
+    Telefono?: string,
+    Correo?: string,
+    Nacionalidad?: string,
+    CURP?: string ,
+    RFC?: string,
+    CP?: string,
+    Calle?: string,
+    Colonia?: string,
+    NumeroIn?:string,
+    NumeroEx?: string,
+    Estado?: string,
+    Municipio?: string
+}

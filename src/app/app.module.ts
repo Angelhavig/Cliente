@@ -41,6 +41,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { InformationComponent } from './components/information/information.component';
+import { EditpersonalComponent } from './components/editpersonal/editpersonal.component';
+import { DetallesconComponent } from './components/detallescon/detallescon.component';
+import { EditcontratosComponent } from './components/editcontratos/editcontratos.component';
 
 
 
@@ -57,6 +60,9 @@ import { InformationComponent } from './components/information/information.compo
     AddcontratosComponent,
     AjustesComponent,
     InformationComponent,
+    EditpersonalComponent,
+    DetallesconComponent,
+    EditcontratosComponent,
   ],
   imports: [
     BrowserModule,

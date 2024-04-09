@@ -52,6 +52,41 @@
                 </div>
                 <div class="actions">
 
+                    <div class="table_header">
+                        <p>Personal</p>
+                        <div>
+                            <input placeholder="personal">
+                        </div>
+                    </div>
+                    <div class="table_section">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre Completo</th>
+                                    <th>Funciones</th>
+                                    <th>Inicio</th>
+                                    <th>Termino</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of dataSource.data">
+                                    <td>{{ item.Apellido_Personal }} {{ item.Nombre_Personal }}</td>
+                                    <td>{{ item.Funciones }}</td>
+                                    <td>{{ item.Inicio }}</td>
+                                    <td>{{ item.Termino }}</td>
+                                    <td>
+                                        <div class="btnactions">
+                                        <button><mat-icon class="btnicon" matTooltip="eliminar">delete</mat-icon></button>
+                                        <button><mat-icon class="btnicon" matTooltip="Editar: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">edit</mat-icon></button>
+                                        <button ><mat-icon class="btnicon" matTooltip="Contrato: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">add</mat-icon></button>
+                                        <button><mat-icon class="btnicon" matTooltip="Detalles: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">info</mat-icon></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
