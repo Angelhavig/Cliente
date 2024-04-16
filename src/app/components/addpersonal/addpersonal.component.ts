@@ -13,27 +13,31 @@ import { PersonalService } from 'src/app/services/personal.service';
 export class AddpersonalComponent implements OnInit{
 
   form: FormGroup;
+  fechaYHora: Date;
+
 
   constructor(
     private fb: FormBuilder, private _snackBar: MatSnackBar,
     private _personalService: PersonalService
   ){
     this.form = this.fb.group({
-      Nombre_Personal: ['', [Validators.required, Validators.maxLength(100)]],
-      Apellido_Personal: ['', [Validators.required, Validators.maxLength(100)]],
-      Telefono: ['', [Validators.required, Validators.maxLength(10)]],
+      Nombre_Personal: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      Apellido_Personal: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      Telefono: ['', [Validators.required, Validators.maxLength(10),Validators.pattern(/^\d+$/)]],
       Correo: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
-      Nacionalidad: ['', [Validators.required, Validators.maxLength(100)]],
+      Nacionalidad: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^[a-zA-Z\s]*$/)]],
       CURP: ['', [Validators.required, Validators.maxLength(18),]],
       RFC: ['', [Validators.required, Validators.maxLength(18),]],
-      CP: ['', [Validators.required, Validators.maxLength(5)]],
+      CP: ['', [Validators.required, Validators.maxLength(5),Validators.pattern(/^\d+$/)]],
       Calle: ['', [Validators.required, Validators.maxLength(100)]],
       Colonia: ['', [Validators.required, Validators.maxLength(100)]],
-      NumeroIn: ['', [Validators.required, Validators.maxLength(100)]],
-      NumeroEx: ['', [Validators.required, Validators.maxLength(100)]],
-      Estado: ['', [Validators.required, Validators.maxLength(100)]],
-      Municipio: ['', [Validators.required, Validators.maxLength(100)]],
+      NumeroIn: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^\d+$/)]],
+      NumeroEx: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^\d+$/)]],
+      Estado: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      Municipio: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^[a-zA-Z\s]*$/)]],
     })
+    this.fechaYHora = new Date();
+
   }
 
   ngOnInit(): void {

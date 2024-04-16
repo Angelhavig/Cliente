@@ -15,6 +15,8 @@ export class EditpersonalComponent implements OnInit{
   form: FormGroup;
   id: string;
   public personal: any;
+  fechaYHora: Date;
+
 
 
   constructor(
@@ -39,6 +41,8 @@ export class EditpersonalComponent implements OnInit{
       Municipio: ['', [Validators.required, Validators.maxLength(100)]],
     })
     this.id = '';
+    this.fechaYHora = new Date();
+
   }
 
   ngOnInit(): void {
@@ -47,7 +51,6 @@ export class EditpersonalComponent implements OnInit{
       this.id = idFromRoute;
       const id_Personal = +this.id;
       this.getInfo(id_Personal);
-      console.log(id_Personal)
     } else {
       // Handle the case where 'id' parameter is null
       // For example, you might want to handle it differently or show an error message

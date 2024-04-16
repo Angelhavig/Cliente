@@ -2,7 +2,7 @@
 <body>
     <div class="wrapper">
         <div class="sidebar">
-            <H2>sidebar</H2>
+            <img src="../../../assets/img/logotype.png" alt="Nombre de la imagen">
             <ul>
                 <li>
                     <a href="#" routerLink="/Home">
@@ -47,85 +47,139 @@
             <div class="header">Sistema de Contratos Ujed</div>
             <div class="content">
                 <div class="info">
-                    <div>/Editar</div>
-                    <div>Fecha</div>
+                    <div>/Editar informacion del personal</div>
+                    <div>{{ fechaYHora | date:'medium' }}</div>
                 </div>
 
                 <div class="actions">
-                    <H1>Formulario de registro</H1>
+                    <H1>Formulario de Registro de Personal</H1>
                     <form [formGroup]="form" (ngSubmit)="addPersonal()" class="form">
                         <div class="input-box">
-                            <label for="nombreCompleto">Nombre Completo</label>
-                            <input formControlName="Nombre_Personal" type="text" id="Nombre_Personal" placeholder="Nombre Completo" />
-                        </div>
-                        <div class="input-box">
-                            <label for="apellidoCompleto">Apellido Completo</label>
-                            <input formControlName="Apellido_Personal" type="text" id="Apellido_Personal" placeholder="Apellido Completo" />
-                        </div>
-                    
-                        <div class="input-box">
-                            <label for="telefono">Teléfono</label>
-                            <input formControlName="Telefono" type="text"  id="Telefono" placeholder="Teléfono"  />
+                            <label for="Nombre_Personal">Nombre Completo</label>
+                            <input formControlName="Nombre_Personal" type="text" id="Nombre_Personal" placeholder="Ingrese el nombre completo" />
+                            <div class="validacion" *ngIf="form.controls['Nombre_Personal'].invalid && (form.controls['Nombre_Personal'].touched || form.controls['Nombre_Personal'].dirty) ">
+                                <span *ngIf="form.controls['Nombre_Personal'].errors?.['required']">El nombre es requerido</span>
+                                <span *ngIf="form.controls['Nombre_Personal'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                            </div>
                         </div>
                     
                         <div class="input-box">
-                            <label for="correo">Correo</label>
-                            <input  formControlName="Correo" type="email" id="correo" placeholder="Correo" />
+                            <label for="Apellido_Personal">Apellido Completo</label>
+                            <input formControlName="Apellido_Personal" type="text" id="Apellido_Personal" placeholder="Ingrese el apellido completo" />
+                            <div class="validacion" *ngIf="form.controls['Apellido_Personal'].invalid && (form.controls['Apellido_Personal'].touched || form.controls['Apellido_Personal'].dirty) ">
+                                <span *ngIf="form.controls['Apellido_Personal'].errors?.['required']">El nombre es requerido</span>
+                                <span *ngIf="form.controls['Apellido_Personal'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                            </div>
                         </div>
                     
                         <div class="input-box">
-                            <label for="nacionalidad">Nacionalidad</label>
-                            <input formControlName="Nacionalidad" type="text" id="nacionalidad" placeholder="Nacionalidad"  />
+                            <label for="Telefono">Teléfono</label>
+                            <input formControlName="Telefono" type="text"  id="Telefono" placeholder="Ingrese el número de teléfono"  />
+                            <div class="validacion" *ngIf="form.controls['Telefono'].invalid && (form.controls['Telefono'].touched || form.controls['Telefono'].dirty) ">
+                                <span *ngIf="form.controls['Telefono'].errors?.['required']">El nombre es requerido</span>
+                                <span *ngIf="form.controls['Telefono'].errors?.['pattern']">El campo solo debe contener numeros</span>
+                            </div>
+                        </div>
+                    
+                        <div class="input-box">
+                            <label for="Correo">Correo Electronico</label>
+                            <input  formControlName="Correo" type="email" id="correo" placeholder="Ingrese el correo electrónico" />
+                            <div class="validacion" *ngIf="form.controls['Correo'].invalid && (form.controls['Correo'].touched || form.controls['Correo'].dirty) ">
+                                <span *ngIf="form.controls['Correo'].errors?.['required']">El nombre es requerido</span>
+                                <span *ngIf="form.controls['Correo'].errors?.['email']">El campo debe tener el formato user@domain.com</span>
+                            </div>
+                        </div>
+                    
+                        <div class="input-box">
+                            <label for="Nacionalidad">Nacionalidad</label>
+                            <input formControlName="Nacionalidad" type="text" id="Nacionalidad" placeholder="Ingrese la nacionalidad"  />
+                            <div class="validacion" *ngIf="form.controls['Nacionalidad'].invalid && (form.controls['Nacionalidad'].touched || form.controls['Nacionalidad'].dirty) ">
+                                <span *ngIf="form.controls['Nacionalidad'].errors?.['required']">El nombre es requerido</span>
+                                <span *ngIf="form.controls['Nacionalidad'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                            </div>
                         </div>
                     
                         <div class="column">
                             <div class="input-box">
-                                <label for="curp">CURP</label>
-                                <input formControlName="CURP" type="text" id="curp" placeholder="CURP" />
+                                <label for="CURP">CURP</label>
+                                <input formControlName="CURP" type="text" id="CURP" placeholder="ingrese la CURP" />
+                                <div class="validacion" *ngIf="form.controls['CURP'].invalid && (form.controls['CURP'].touched || form.controls['CURP'].dirty) ">
+                                    <span *ngIf="form.controls['CURP'].errors?.['required']">El nombre es requerido</span>
+                                </div>
                             </div>
                     
                             <div class="input-box">
-                                <label for="rfc">RFC</label>
-                                <input  formControlName="RFC" type="text" id="rfc" placeholder="RFC" />
+                                <label for="RFC">RFC</label>
+                                <input  formControlName="RFC" type="text" id="RFC" placeholder="ingrese el RFC" />
+                                <div class="validacion" *ngIf="form.controls['RFC'].invalid && (form.controls['RFC'].touched || form.controls['RFC'].dirty) ">
+                                    <span *ngIf="form.controls['RFC'].errors?.['required']">El nombre es requerido</span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="input-box">
-                            <label for="cp">CP</label>
-                            <input  formControlName="CP" type="text" id="cp" placeholder="CP" />
+                            <label for="CP">Codigo Postal</label>
+                            <input  formControlName="CP" type="text" id="CP" placeholder="Ingrese el código postal" />
+                            <div class="validacion" *ngIf="form.controls['CP'].invalid && (form.controls['CP'].touched || form.controls['CP'].dirty) ">
+                                <span *ngIf="form.controls['CP'].errors?.['required']">El nombre es requerido</span>
+                                <span *ngIf="form.controls['CP'].errors?.['pattern']">El campo solo debe contener numeros</span>
+                            </div>
                         </div>
                     
                         <div class="input-box">
                             <label for="calle">Calle</label>
-                            <input formControlName="Calle" type="text" id="calle" placeholder="Calle" />
+                            <input formControlName="Calle" type="text" id="calle" placeholder="Ingrese el nombre de la calle" />
+                            <div class="validacion" *ngIf="form.controls['Calle'].invalid && (form.controls['Calle'].touched || form.controls['Calle'].dirty) ">
+                                <span *ngIf="form.controls['Calle'].errors?.['required']">El nombre es requerido</span>
+                            </div>
                         </div>
                         
                         <div class="input-box">
-                            <label for="colonia">Colonia</label>
-                            <input formControlName="Colonia" type="text" id="colonia" placeholder="Colonia" />
+                            <label for="Colonia">Colonia</label>
+                            <input formControlName="Colonia" type="text" id="Colonia" placeholder="Ingrese el nombre de la colonia" />
+                            <div class="validacion" *ngIf="form.controls['Colonia'].invalid && (form.controls['Colonia'].touched || form.controls['Colonia'].dirty) ">
+                                <span *ngIf="form.controls['Colonia'].errors?.['required']">El nombre es requerido</span>
+                                <span *ngIf="form.controls['Colonia'].errors?.['pattern']">El campo solo debe contener numeros</span>
+                            </div>
                         </div>
                     
                         <div class="column">
                             <div class="input-box">
-                                <label for="numeroInterior">Número Interior</label>
-                                <input formControlName="NumeroIn" type="text" id="numeroInterior" placeholder="Número Interior" />
+                                <label for="NumeroIn">Número Interior</label>
+                                <input formControlName="NumeroIn" type="text" id="NumeroIn" placeholder="Ingrese el número interior" />
+                                <div class="validacion" *ngIf="form.controls['NumeroIn'].invalid && (form.controls['NumeroIn'].touched || form.controls['NumeroIn'].dirty) ">
+                                    <span *ngIf="form.controls['NumeroIn'].errors?.['required']">El nombre es requerido</span>
+                                    <span *ngIf="form.controls['NumeroIn'].errors?.['pattern']">El campo solo debe contener numeros</span>
+                                </div>
                             </div>
                     
                             <div class="input-box">
-                                <label for="numeroExterior">Número Exterior</label>
-                                <input  formControlName="NumeroEx" type="text" id="numeroExterior" placeholder="Número Exterior" />
+                                <label for="NumeroEx">Número Exterior</label>
+                                <input  formControlName="NumeroEx" type="text" id="NumeroEx" placeholder="Ingrese el número exterior" />
+                                <div class="validacion" *ngIf="form.controls['NumeroEx'].invalid && (form.controls['NumeroEx'].touched || form.controls['NumeroEx'].dirty) ">
+                                    <span *ngIf="form.controls['NumeroEx'].errors?.['required']">El nombre es requerido</span>
+                                    <span *ngIf="form.controls['NumeroEx'].errors?.['pattern']">El campo solo debe contener numeros</span>
+                                </div>
                             </div>
                         </div>
                     
                         <div class="column">
                             <div class="input-box">
                                 <label for="estado">Estado</label>
-                                <input formControlName="Estado" type="text" id="estado" placeholder="Estado"  />
+                                <input formControlName="Estado" type="text" id="estado" placeholder="Ingrese el estado"  />
+                                <div class="validacion" *ngIf="form.controls['Estado'].invalid && (form.controls['Estado'].touched || form.controls['Estado'].dirty) ">
+                                    <span *ngIf="form.controls['Estado'].errors?.['required']">El nombre es requerido</span>
+                                    <span *ngIf="form.controls['Estado'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                                </div>
                             </div>
                     
                             <div class="input-box">
                                 <label for="municipio">Municipio</label>
-                                <input formControlName="Municipio" type="text" id="municipio" placeholder="Municipio" />
+                                <input formControlName="Municipio" type="text" id="municipio" placeholder="Ingrese el municipio" />
+                                <div class="validacion" *ngIf="form.controls['Municipio'].invalid && (form.controls['Municipio'].touched || form.controls['Municipio'].dirty) ">
+                                    <span *ngIf="form.controls['Municipio'].errors?.['required']">El nombre es requerido</span>
+                                    <span *ngIf="form.controls['Municipio'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                                </div>
                             </div>
                         </div>
 

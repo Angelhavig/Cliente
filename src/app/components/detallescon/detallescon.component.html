@@ -1,1 +1,84 @@
-<p>detallescon works!</p>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <img src="../../../assets/img/logotype.png" alt="Nombre de la imagen">
+            <ul>
+                <li>
+                    <a href="#" routerLink="/Home">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></span>
+                        <span class="text">Pagina Principal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Personal">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></span>
+                        <span class="text">Datos Personal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Agregar-Personal">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person_add"></mat-icon></span>
+                        <span class="text">Agregar personal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Contratos"  >
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon></span>
+                        <span class="text">Datos Contratos</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Ajustes">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="manage_accounts"></mat-icon></span>
+                        <span class="text">Ajustes</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="Out">
+                <a href="">
+                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon"fontIcon="logout"></mat-icon></span>
+                    <span class="text">Cerrar Sesion</span>
+                </a>
+            </div>
+        </div>
+
+        
+        <div class="main_content">
+            <div class="header">Sistema de Contratos Ujed</div>
+            <div class="content">
+                <div class="info">
+                    <div>/Detalles de los contratos</div>
+                    <div>{{ fechaYHora | date:'medium' }}</div>
+                </div>
+
+                <div class="actions" *ngFor="let con of contrato">
+                    <p><strong>Funciones:</strong> {{con.Funciones}}</p>
+                    <p><strong>Adscripción:</strong> {{con.Adscrito}}</p>
+                    <p><strong>Fecha de Inicio:</strong> {{con.Inicio}}</p>
+                    <p><strong>Fecha de Término:</strong> {{con.Termino}}</p>
+                    <p><strong>Sueldo:</strong> ${{con.Sueldo}}</p>
+                    
+                    <p><strong>Datos primer Testigo</strong></p>
+                    <p><strong>Nombre:</strong> {{con.Nombre_T1}} {{con.Apellido_T1}}</p>
+                    <p><strong>Correo:</strong> {{con.Correo_T1}}</p>
+                    <p><strong>Telefono:</strong> {{con.Telefono_T1}}</p>
+                    
+                    <p><strong>Datos segundo Testigo</strong></p>
+                    <p><strong>Nombre:</strong> {{con.Nombre_T2}} {{con.Apellido_T2}}</p>
+                    <p><strong>Correo:</strong> {{con.Correo_T2}}</p>
+                    <p><strong>Telefono:</strong> {{con.Telefono_T2}}</p>
+                    
+                    <p><strong>Datos Académicos</strong></p>
+                    <p><strong>Directora:</strong> {{con.Directora}}</p>
+                    <p><strong>Contraloría:</strong> {{con.Tesorero}}</p>
+                    
+                    <p><strong>Fecha de creación:</strong> {{con.Fecha_Creacion}}</p>
+
+                    <button (click)="sendEmails()">Enviar Correos</button>
+                    <button (click)="perfil(con.id_Personal)">Perfil del Personal</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>

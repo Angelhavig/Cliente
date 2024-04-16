@@ -2,7 +2,7 @@
 <body>
     <div class="wrapper">
         <div class="sidebar">
-            <H2>sidebar</H2>
+            <img src="../../../assets/img/logotype.png" alt="Nombre de la imagen">
             <ul>
                 <li>
                     <a href="#" routerLink="/Home">
@@ -48,7 +48,7 @@
             <div class="content">
                 <div class="info">
                     <div>/Contratos</div>
-                    <div>Fecha</div>
+                    <div>{{ fechaYHora | date:'medium' }}</div>
                 </div>
                 <div class="actions">
 
@@ -76,10 +76,8 @@
                                     <td>{{ item.Termino }}</td>
                                     <td>
                                         <div class="btnactions">
-                                        <button><mat-icon class="btnicon" matTooltip="eliminar">delete</mat-icon></button>
-                                        <button><mat-icon class="btnicon" matTooltip="Editar: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">edit</mat-icon></button>
-                                        <button ><mat-icon class="btnicon" matTooltip="Contrato: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">add</mat-icon></button>
-                                        <button><mat-icon class="btnicon" matTooltip="Detalles: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">info</mat-icon></button>
+                                        <button (click)="edit(item.id_Contrato)" ><mat-icon class="btnicon" matTooltip="Editar: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">edit</mat-icon></button>
+                                        <button  (click)="detalles(item.id_Contrato)"><mat-icon class="btnicon" matTooltip="Detalles: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">info</mat-icon></button>
                                         </div>
                                     </td>
                                 </tr>

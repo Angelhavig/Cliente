@@ -19,6 +19,11 @@ body{
     background: #B11830;
     padding: 30px 0;
 }
+.wrapper .sidebar img {
+    width: 100%; /* Cambia este valor al ancho deseado */
+    height: 80px; /* Esto mantiene la proporción de aspecto */
+    align-items: center;
+}
 
 .wrapper .sidebar h2{
     color: #fff;
@@ -145,9 +150,37 @@ body{
 
 
 
-.actions{
-    margin: 20px;
-    height: 100%;
-    max-width: 100%;
-    overflow: auto;
+.actions {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.actions p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.actions p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.actions p:last-child {
+    margin-bottom: 0;
+}
+
+.actions p:nth-child(odd) {
+    color: #333;
+}
+
+.actions p:nth-child(even) {
+    color: #666;
+}
+
+.actions p span {
+    font-weight: bold;
 }

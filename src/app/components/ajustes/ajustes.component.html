@@ -2,7 +2,7 @@
 <body>
     <div class="wrapper">
         <div class="sidebar">
-            <H2>sidebar</H2>
+            <img src="../../../assets/img/logotype.png" alt="Nombre de la imagen">
             <ul>
                 <li>
                     <a href="#" routerLink="/Home">
@@ -47,13 +47,43 @@
             <div class="header">Sistema de Contratos Ujed</div>
             <div class="content">
                 <div class="info">
-                    <div>/Ajustes de Cuenta</div>
-                    <div>Fecha</div>
+                    <div>/Configuracion</div>
+                    <div>{{ fechaYHora | date:'medium' }}</div>
                 </div>
                 <div class="actions">
-
+                    <h1>Datos Administrativos</h1>
+                    <form [formGroup]="form" (ngSubmit)="actualizar()">
+                        <div class="column">
+                            <label for="Puesto">Puesto</label>
+                            <select formControlName="Puesto" id="Puesto" (change)="seleccionarPuesto($event)">
+                                <option value="" disabled selected>Seleccione el puesto</option>
+                                <option value="direccion">Dirección de Desarrollo y Gestión de Recursos Humanos</option>
+                                <option value="contraloria">Contraloría General</option>
+                                <option value="tesorero">Tesorero General</option>
+                            </select>
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Nombre">Nombre Completo</label>
+                                <input formControlName="Nombre" type="text" id="Nombre" placeholder="Ingrese el Nombre Completo" />
+                            </div>
+                            <div class="input-box">
+                                <label for="Apellido">Apellido Completo</label>
+                                <input formControlName="Apellido" type="text" id="Apellido" placeholder="Ingrese el Apellido Completo" />
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Correo">Correo Electrónico</label>
+                                <input formControlName="Correo" type="email" id="Correo" placeholder="Ingrese el Correo Electrónico" />
+                            </div>
+                        </div>
+                        <button>Actualizar</button>
+                    </form>
                 </div>
+                
             </div>
         </div>
+
     </div>
 </body>

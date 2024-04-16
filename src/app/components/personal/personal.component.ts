@@ -15,6 +15,7 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 })
 export class PersonalComponent  implements OnInit, AfterViewInit{
 
+  fechaYHora: Date;
 
   dataSource = new MatTableDataSource<Personal>();
 
@@ -22,11 +23,13 @@ export class PersonalComponent  implements OnInit, AfterViewInit{
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(public _dialog: MatDialog, private _personalService: PersonalService, private router: Router){
+    this.fechaYHora = new Date();
 
   }
 
   ngOnInit(): void {
     this.getData();
+
   }
 
   ngAfterViewInit() {
@@ -45,7 +48,6 @@ export class PersonalComponent  implements OnInit, AfterViewInit{
 
   getData(){
     this._personalService.getPersonal().subscribe((data) => {
-      console.log(data);
       this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;
       this.paginator._intl.itemsPerPageLabel = 'Items por pagina: ';
@@ -63,13 +65,11 @@ export class PersonalComponent  implements OnInit, AfterViewInit{
 
   edit(id?: number) {
     // Implementa la lógica para editar el personal con el id_Personal proporcionado
-    console.log('EditarInformacion', id);
     this.router.navigate(['EditarInformacion', id]);
   }
 
   delete(id_Personal?: number, Nombre_Personal?: string) {
     // Implementa la lógica para eliminar el personal con el id_Personal proporcionado
-    console.log('Eliminar:', id_Personal, Nombre_Personal);
   }
 
   information(id?: number, Correo?: string) {

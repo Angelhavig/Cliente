@@ -1,1 +1,236 @@
-<p>editcontratos works!</p>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <img src="../../../assets/img/logotype.png" alt="Nombre de la imagen">
+            <ul>
+                <li>
+                    <a href="#" routerLink="/Home">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></span>
+                        <span class="text">Pagina Principal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Personal">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon></span>
+                        <span class="text">Datos Personal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Agregar-Personal">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person_add"></mat-icon></span>
+                        <span class="text">Agregar personal</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Contratos"  >
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="description"></mat-icon></span>
+                        <span class="text">Datos Contratos</span>
+                    </a>
+                </li>
+                <li >
+                    <a href="#" routerLink="/Ajustes">
+                        <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="manage_accounts"></mat-icon></span>
+                        <span class="text">Ajustes</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="Out">
+                <a href="">
+                    <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon"fontIcon="logout"></mat-icon></span>
+                    <span class="text">Cerrar Sesion</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="main_content">
+            <div class="header">Sistema de Contratos Ujed</div>
+            <div class="content">
+                <div class="info">
+                    <div>/Editar informacion del contrato</div>
+                    <div>{{ fechaYHora | date:'medium' }}</div>
+                </div>
+
+                <div class="actions">
+                    <H1>Formulario de registro</H1>
+                    <form [formGroup]="form" (ngSubmit)="addContrato()" class="form">
+                        <div class="input-box">
+                            <label for="Funciones">Funciones del Personal</label>
+                            <input formControlName="Funciones" type="text" id="Funciones" placeholder="Ingrese las funciones del personal" />
+                            <div class="validacion" *ngIf="form.controls['Funciones'].invalid && (form.controls['Funciones'].touched || form.controls['Funciones'].dirty) ">
+                                <span *ngIf="form.controls['Funciones'].errors?.['required']">Campo requerido</span>
+                                <span *ngIf="form.controls['Funciones'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                            </div>
+                        </div>
+                    
+                        <div class="input-box">
+                            <label for="Adscrito">Adscrito</label>
+                            <input formControlName="Adscrito" type="text" id="Adscrito" placeholder="Ingrese el lugar de adscripción" />
+                            <div class="validacion" *ngIf="form.controls['Adscrito'].invalid && (form.controls['Adscrito'].touched || form.controls['Adscrito'].dirty) ">
+                                <span *ngIf="form.controls['Adscrito'].errors?.['required']">Campo requerido</span>
+                                <span *ngIf="form.controls['Adscrito'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                            </div>                      
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Inicio">Fecha de Inicio del Contrato</label>
+                                <input formControlName="Inicio" type="date"  id="Inicio" placeholder="Seleccione la fecha de inicio del contrato"  />
+                                <div class="validacion" *ngIf="form.controls['Inicio'].invalid && (form.controls['Inicio'].touched || form.controls['Inicio'].dirty) ">
+                                    <span *ngIf="form.controls['Inicio'].errors?.['required']">Campo fecha de inicio de actividades es requerido</span>
+                                </div>
+                            </div>
+                        
+                            <div class="input-box">
+                                <label for="Termino">Fecha de Término del Contrato</label>
+                                <input  formControlName="Termino" type="date" id="Termino" placeholder="Seleccione la fecha de término del contrato" />
+                                <div class="validacion" *ngIf="form.controls['Termino'].invalid && (form.controls['Termino'].touched || form.controls['Termino'].dirty) ">
+                                    <span *ngIf="form.controls['Termino'].errors?.['required']">Campo fecha de termino de actividades es requerido</span>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Sueldo">Sueldo</label>
+                                <input formControlName="Sueldo" type="text" id="Sueldo" placeholder="Ingrese el sueldo en cantidad"  />
+                                <div class="validacion" *ngIf="form.controls['Sueldo'].invalid && (form.controls['Sueldo'].touched || form.controls['Sueldo'].dirty) ">
+                                    <span *ngIf="form.controls['Sueldo'].errors?.['required']">El Campo es requerido</span>
+                                    <span *ngIf="form.controls['Sueldo'].errors?.['pattern']">El campo solo debe contener numeros</span>
+
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label for="Sueldo_Escrito">Sueldo Escrito</label>
+                                <input formControlName="Sueldo_Escrito" type="text" id="Sueldo_Escrito" placeholder="Ingrese el sueldo en palabras" />
+                                <div class="validacion" *ngIf="form.controls['Sueldo_Escrito'].invalid && (form.controls['Sueldo_Escrito'].touched || form.controls['Sueldo_Escrito'].dirty) ">
+                                    <span *ngIf="form.controls['Sueldo_Escrito'].errors?.['required']">El campo es requerido</span>
+                                    <span *ngIf="form.controls['Sueldo_Escrito'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Nombre_T1">Nombre primer testigo</label>
+                                <input  formControlName="Nombre_T1" type="text" id="Nombre_T1" placeholder="Ingrese el nombre del primer testigo" />
+                                <div class="validacion" *ngIf="form.controls['Nombre_T1'].invalid && (form.controls['Nombre_T1'].touched || form.controls['Nombre_T1'].dirty) ">
+                                    <span *ngIf="form.controls['Nombre_T1'].errors?.['required']">El campo es requerido</span>
+                                    <span *ngIf="form.controls['Nombre_T1'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                                </div>
+                            </div>
+                        
+                            <div class="input-box">
+                                <label for="Apellido_T1">Apellido del Primer Testigo</label>
+                                <input  formControlName="Apellido_T1" type="text" id="Apellido_T1" placeholder="Ingrese el apellido del primer testigo" />
+                                <div class="validacion" *ngIf="form.controls['Apellido_T1'].invalid && (form.controls['Apellido_T1'].touched || form.controls['Apellido_T1'].dirty) ">
+                                    <span *ngIf="form.controls['Apellido_T1'].errors?.['required']">El campo es requerido</span>
+                                    <span *ngIf="form.controls['Apellido_T1'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Correo_T1">Correo del Primer Testigo</label>
+                                <input formControlName="Correo_T1" type="email" id="Correo_T1" placeholder="Ingrese el correo del primer testigo" />
+                                <div class="validacion" *ngIf="form.controls['Correo_T1'].invalid && (form.controls['Correo_T1'].touched || form.controls['Correo_T1'].dirty) ">
+                                    <span *ngIf="form.controls['Correo_T1'].errors?.['required']">El campo es requerido</span>
+                                    <span *ngIf="form.controls['Correo_T1'].errors?.['email']">El campo debe tener el formato user@domain.com</span>
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label for="Telefono_T1">Teléfono del Primer Testigo</label>
+                                <input formControlName="Telefono_T1" type="text" id="Telefono_T1" placeholder="Ingrese el teléfono del primer testigo" />
+                                <div class="validacion" *ngIf="form.controls['Telefono_T1'].invalid && (form.controls['Telefono_T1'].touched || form.controls['Telefono_T1'].dirty) ">
+                                    <span *ngIf="form.controls['Telefono_T1'].errors?.['required']">El campo es requerido</span>
+                                    <span *ngIf="form.controls['Telefono_T1'].errors?.['pattern']">El campo solo debe contener numeros</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Nombre_T2">Nombre del Segundo Testigo</label>
+                                <input  formControlName="Nombre_T2" type="text" id="Nombre_T2" placeholder="Ingrese el nombre del segundo testigo" />
+                                <div class="validacion" *ngIf="form.controls['Nombre_T2'].invalid && (form.controls['Nombre_T2'].touched || form.controls['Nombre_T2'].dirty) ">
+                                    <span *ngIf="form.controls['Nombre_T2'].errors?.['required']">El nombre es requerido</span>
+                                    <span *ngIf="form.controls['Nombre_T2'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                                </div>
+                            </div>
+                        
+                            <div class="input-box">
+                                <label for="Apellido_T2">Apellido segundo testigo</label>
+                                <input  formControlName="Apellido_T2" type="text" id="Apellido_T2" placeholder="Ingrese el apellido del segundo testigo" />
+                                <div class="validacion" *ngIf="form.controls['Apellido_T2'].invalid && (form.controls['Apellido_T2'].touched || form.controls['Apellido_T2'].dirty) ">
+                                    <span *ngIf="form.controls['Apellido_T2'].errors?.['required']">El campo es requerido</span>
+                                    <span *ngIf="form.controls['Apellido_T2'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="column">       
+                            <div class="input-box">
+                                <label for="Correo_T2">Correo del Segundo Testigo</label>
+                                <input formControlName="Correo_T2" type="email" id="Correo_T2" placeholder="Ingrese el correo del segundo testigo" />
+                                <div class="validacion" *ngIf="form.controls['Correo_T2'].invalid && (form.controls['Correo_T2'].touched || form.controls['Correo_T2'].dirty) ">
+                                    <span *ngIf="form.controls['Correo_T2'].errors?.['required']">El campo es requerido</span>
+                                    <span *ngIf="form.controls['Correo_T2'].errors?.['email']">El campo debe tener el formato user@domain.com</span>
+                                </div>
+                            </div>
+    
+                            <div class="input-box">
+                                <label for="Telefono_T2">Teléfono del Segundo Testigo</label>
+                                <input formControlName="Telefono_T2" type="text" id="Telefono_T2" placeholder="Ingrese el teléfono del segundo testigo" />
+                                <div classc="validacion" *ngIf="form.controls['Telefono_T2'].invalid && (form.controls['Telefono_T2'].touched || form.controls['Telefono_T2'].dirty) ">
+                                    <span *ngIf="form.controls['Telefono_T2'].errors?.['required']">El campo es requerido</span>
+                                    <span *ngIf="form.controls['Telefono_T2'].errors?.['pattern']">El campo solo debe contener numeros</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Directora">Directora del Plantel</label>
+                                <input formControlName="Directora" type="text" id="Directora" placeholder="Ingrese el nombre de la directora" />
+                                <div class="validacion" *ngIf="form.controls['Directora'].invalid && (form.controls['Directora'].touched || form.controls['Directora'].dirty) ">
+                                    <span *ngIf="form.controls['Directora'].errors?.['required']">El nombre es requerido</span>
+                                    <span *ngIf="form.controls['Directora'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                                </div>
+                            </div>
+                    
+                            <div class="input-box">
+                                <label for="Contraloria">Contraloria</label>
+                                <input  formControlName="Contraloria" type="text" id="Contraloria" placeholder="Ingrese el nombre de la contraloría" />
+                                <div class="validacion" *ngIf="form.controls['Contraloria'].invalid && (form.controls['Contraloria'].touched || form.controls['Contraloria'].dirty) ">
+                                    <span *ngIf="form.controls['Contraloria'].errors?.['required']">El nombre es requerido</span>
+                                    <span *ngIf="form.controls['Contraloria'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="column">
+                            <div class="input-box">
+                                <label for="Tesorero">Tesorero</label>
+                                <input formControlName="Tesorero" type="text" id="Tesorero" placeholder="Ingrese el nombre del tesorero"  />
+                                <div class="validacion" *ngIf="form.controls['Tesorero'].invalid && (form.controls['Tesorero'].touched || form.controls['Tesorero'].dirty) ">
+                                    <span *ngIf="form.controls['Tesorero'].errors?.['required']">El nombre es requerido</span>
+                                    <span *ngIf="form.controls['Tesorero'].errors?.['pattern']">El campo solo debe contener palabras</span>
+                                </div>
+                            </div>
+                    
+                            <div class="input-box">
+                                <label for="Fecha_Creacion">Fecha de Creación del Contrato</label>
+                                <input formControlName="Fecha_Creacion" type="date" id="Fecha_Creacion" placeholder="Seleccione la fecha de creación del contrato" />
+                                <div class="validacion" *ngIf="form.controls['Fecha_Creacion'].invalid && (form.controls['Fecha_Creacion'].touched || form.controls['Fecha_Creacion'].dirty) ">
+                                    <span *ngIf="form.controls['Fecha_Creacion'].errors?.['required']">Campo fecha de termino de actividades es requerido</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button>Crear Registro Nuevo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>

@@ -44,6 +44,7 @@ import { InformationComponent } from './components/information/information.compo
 import { EditpersonalComponent } from './components/editpersonal/editpersonal.component';
 import { DetallesconComponent } from './components/detallescon/detallescon.component';
 import { EditcontratosComponent } from './components/editcontratos/editcontratos.component';
+import { VistaComponent } from './components/vista/vista.component';
 
 
 
@@ -63,6 +64,7 @@ import { EditcontratosComponent } from './components/editcontratos/editcontratos
     EditpersonalComponent,
     DetallesconComponent,
     EditcontratosComponent,
+    VistaComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,21 +12,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HomeComponent implements OnInit{
   showFiller = false;
-  fecha: string;
-  hora: string;
+  fechaYHora: Date;
+
   
   constructor( private fb: FormBuilder, private _snackBar: MatSnackBar, private _authService: AuthService, private router: Router){
-    this.fecha = '';
-    this.hora = '';
+    this.fechaYHora = new Date();
+
 
   }
   ngOnInit(): void {
 
-    this.mostrarFechaHora();
-    // Actualiza la fecha y la hora cada segundo
-    setInterval(() => {
-      this.mostrarFechaHora();
-    }, 1000);
     
   } 
 
@@ -39,10 +34,5 @@ export class HomeComponent implements OnInit{
     });
   }
 
-  mostrarFechaHora(): void {
-    const fechaHora = new Date();
-    this.fecha = fechaHora.toLocaleDateString();
-    this.hora = fechaHora.toLocaleTimeString();
-  }
 
 }

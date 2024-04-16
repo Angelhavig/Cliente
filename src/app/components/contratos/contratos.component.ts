@@ -9,25 +9,30 @@ import { ContratosService } from 'src/app/services/contratos.service';
   templateUrl: './contratos.component.html',
   styleUrls: ['./contratos.component.css']
 })
-export class ContratosComponent  implements OnInit, AfterViewInit{
+export class ContratosComponent  implements OnInit{
 
   dataSource = new MatTableDataSource<VContrato>();
+  fechaYHora: Date;
 
-  constructor(private _contratoService: ContratosService, private router: Router){}
+  constructor(private _contratoService: ContratosService, private router: Router){
 
-
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
+    this.fechaYHora = new Date();
   }
+
   ngOnInit(): void {
     this.getData()
   }
 
   getData(){
     this._contratoService.getContratos().subscribe((data)=>{
-      console.log(data);
       this.dataSource.data = data;
     })
   }
 
-}
+  detalles(id?:number){
+    this.router.navigate(['Contrato',id]);
+  }
+  edit(id?:number){
+    this.router.navigate(['EditarContrato',id]);
+  }
+  }

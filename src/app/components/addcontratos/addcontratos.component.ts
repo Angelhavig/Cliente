@@ -15,6 +15,9 @@ export class AddcontratosComponent {
   
   form: FormGroup;
   id: number;
+  public administrativo: any;
+  fechaYHora: Date;
+
 
   constructor(
     private fb: FormBuilder, private _snackBar: MatSnackBar,
@@ -22,34 +25,45 @@ export class AddcontratosComponent {
     private _route: ActivatedRoute,
   ){
     this.form = this.fb.group({
-      Funciones: ['', [Validators.required, Validators.maxLength(100)]],
-      Adscrito: ['', [Validators.required, Validators.maxLength(100)]],
+      Funciones: ['', [Validators.required, Validators.maxLength(100),  Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      Adscrito: ['', [Validators.required, Validators.maxLength(100),  Validators.pattern(/^[a-zA-Z\s]*$/)]],
       Inicio: ['', [Validators.required, Validators.maxLength(100)]],
       Termino: ['', [Validators.required, Validators.maxLength(100)]],
-      Sueldo: ['', [Validators.required, Validators.maxLength(100)]],
-      Sueldo_Escrito: ['', [Validators.required, Validators.maxLength(100)]],
+      Sueldo: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^\d+$/)]],
+      Sueldo_Escrito: ['', [Validators.required, Validators.maxLength(100),  Validators.pattern(/^[a-zA-Z\s]*$/)]],
 
-      Nombre_T1: ['', [Validators.required, Validators.maxLength(100)]],
-      Apellido_T1: ['', [Validators.required, Validators.maxLength(100)]],
+      Nombre_T1: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      Apellido_T1: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^[a-zA-Z\s]*$/)]],
       Correo_T1: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
-      Telefono_T1: ['', [Validators.required, Validators.maxLength(100)]],
+      Telefono_T1: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^\d+$/)]],
 
-      Nombre_T2: ['', [Validators.required, Validators.maxLength(100)]],
-      Apellido_T2: ['', [Validators.required, Validators.maxLength(100)]],
+      Nombre_T2: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      Apellido_T2: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^[a-zA-Z\s]*$/)]],
       Correo_T2: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
-      Telefono_T2: ['', [Validators.required, Validators.maxLength(100)]],
+      Telefono_T2: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^\d+$/)]],
       
-      Directora: ['', [Validators.required, Validators.maxLength(100)]],
-      Contraloria: ['', [Validators.required, Validators.maxLength(100)]],
-      Tesorero: ['', [Validators.required, Validators.maxLength(100)]],
+      Directora: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      Contraloria: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      Tesorero: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(/^[a-zA-Z\s]*$/)]],
       Fecha_Creacion: ['', [Validators.required, Validators.maxLength(100)]],
       
     });
     this.id = 0;
+    this.fechaYHora = new Date();
+
   }
 
   ngOnInit(): void {    
     this.id = +this._route.snapshot.paramMap.get('id')!;
+    this._contratoService.getInfoAdmin().subscribe((data)=>{
+      this.administrativo = data;
+      console.log(this.administrativo)
+      this.form.patchValue({
+        Directora: this.administrativo[0].Apellido + ' ' + this.administrativo[0].Nombre,
+        Contraloria: this.administrativo[1].Apellido + ' ' + this.administrativo[1].Nombre,
+        Tesorero: this.administrativo[2].Apellido + ' ' + this.administrativo[2].Nombre
+      })
+    })
   }
 
   cancelar(){}

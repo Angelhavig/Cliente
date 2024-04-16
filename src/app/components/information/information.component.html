@@ -1,7 +1,7 @@
 <body>
     <div class="wrapper">
         <div class="sidebar">
-            <H2>sidebar</H2>
+            <img src="../../../assets/img/logotype.png" alt="Nombre de la imagen">
             <ul>
                 <li>
                     <a href="#" routerLink="/Home">
@@ -47,20 +47,21 @@
             <div class="header">Sistema de Contratos Ujed</div>
             <div class="content">
                 <div class="info">
-                    <div>/Personal</div>
-                    <div>Fecha</div>
+                    <div>/Informacion del perfil</div>
+                    <div>{{ fechaYHora | date:'medium' }}</div>
                 </div>
 
                 <div class="actions" *ngFor="let per of personal">
-                        <p>Nombre completo: {{per.Apellido_Personal}} {{per.Nombre_Personal}}</p>
-                        <p>Telefono: {{per.Telefono}}</p>
-                        <p>Correo: {{per.Correo}}</p>
-                        <p>Nacionalidad: {{per.Nacionalidad}}</p>
-                        <p>CURP: {{per.CURP}} RFC: {{per.RFC}}</p>
-                        <p>{{per.Telefono}}</p>
-                        <p>Domicilio en calle {{per.calle}} Numero In {{per.NumeroIn}} Ex {{per.NumeroEx}},Colonia {{per.Colonia}},CP {{per.cp}} </p>
-                        <P>{{per.Estado}},{{per.Municipio}}</P>
+                    <p><span>Nombre completo:</span> {{per.Apellido_Personal}} {{per.Nombre_Personal}}</p>
+                    <p><span>Telefono:</span> {{per.Telefono}}</p>
+                    <p><span>Correo:</span> {{per.Correo}}</p>
+                    <p><span>Nacionalidad:</span> {{per.Nacionalidad}}</p>
+                    <p><span>CURP:</span> {{per.CURP}} <span>RFC:</span> {{per.RFC}}</p>
+                    <p><span>Domicilio:</span> {{per.calle}} No. {{per.NumeroIn}} Ext. {{per.NumeroEx}}, Col. {{per.Colonia}}, <span>CP</span> {{per.CP}}</p>
+                    <p><span>Ubicación:</span> {{per.Estado}}, {{per.Municipio}}</p>
                 </div>
+                
+
             </div>
         </div>
     </div>

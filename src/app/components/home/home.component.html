@@ -2,7 +2,7 @@
 <body>
     <div class="wrapper">
         <div class="sidebar">
-            <H2>sidebar</H2>
+            <img src="../../../assets/img/logotype.png" alt="Nombre de la imagen">
             <ul>
                 <li>
                     <a href="#" routerLink="/Home">
@@ -36,18 +36,26 @@
                 </li>
             </ul>
             <div class="Out">
-                <a href="" (click)="logout()">
+                <a href="">
                     <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon"fontIcon="logout"></mat-icon></span>
                     <span class="text">Cerrar Sesion</span>
                 </a>
             </div>
         </div>
+
         <div class="main_content">
             <div class="header">Sistema de Contratos Ujed</div>
-            <div class="info">
-                Hola Hola
+            <div class="content">
+                <div class="info">
+                    <div>/Pagina principal</div>
+                    <div>{{ fechaYHora | date:'medium' }}</div>
+                </div>
+
+                <div class="actions">
+                    
+                </div>
             </div>
-            
         </div>
+
     </div>
 </body>

@@ -6,7 +6,7 @@
     text-decoration: none;
 }
 body{
-    background: #f3f5f9;
+    background: #fff;
 }
 .wrapper{
     display: flex;
@@ -18,6 +18,11 @@ body{
     height: 100%;
     background: #B11830;
     padding: 30px 0;
+}
+.wrapper .sidebar img {
+    width: 100%; /* Cambia este valor al ancho deseado */
+    height: 80px; /* Esto mantiene la proporción de aspecto */
+    align-items: center;
 }
 
 .wrapper .sidebar h2{
@@ -140,4 +145,77 @@ body{
     align-content: center;
     align-items: center;
     margin: 20px;
+}
+
+.actions {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+}
+
+.actions h1 {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px; /* Añadido espacio inferior */
+}
+
+.actions .form {
+    margin-top: 30px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column; /* Cambiado de column a columnas para asegurar disposición vertical */
+}
+
+.input-box {
+    margin-bottom: 15px; /* Añadido espacio inferior */
+}
+
+.input-box label {
+    color: #333;
+    margin-bottom: 5px; /* Añadido espacio inferior */
+}
+
+label {
+    color: #333;
+    margin-bottom: 5px; /* Añadido espacio inferior */
+}
+
+
+
+.input-box input,
+.input-box select {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.button-container {
+    text-align: center; /* Alineación del botón al centro */
+}
+
+button {
+    height: 40px;
+    width: 40%;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 400;
+    background-color: #03A60A;
+}
+
+button:hover {
+    background-color: #048C05; /* Cambio de color al pasar el cursor */
 }

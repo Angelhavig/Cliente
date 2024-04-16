@@ -1,0 +1,218 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    background: #fff;
+}
+.wrapper{
+    display: flex;
+    position: relative;
+}
+.wrapper .sidebar{
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background: #B11830;
+    padding: 30px 0;
+}
+.wrapper .sidebar img {
+    width: 100%; /* Cambia este valor al ancho deseado */
+    height: 80px; /* Esto mantiene la proporción de aspecto */
+    align-items: center;
+}
+
+.wrapper .sidebar h2{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.wrapper .sidebar ul li{
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 05);
+}
+
+.wrapper .sidebar ul li a{
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.wrapper .sidebar ul li a .icon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    height: 30px;
+    font-size: 1.5em;
+    color: #000000;
+}
+
+.wrapper .sidebar ul li a .text{
+    position: relative;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: #fff;
+    text-transform: 0.05em;
+    letter-spacing: 0.05em;
+
+}
+
+.wrapper .sidebar ul li:hover{
+    background: #fff;
+}
+
+.wrapper .sidebar ul li:hover a{
+    color: #fff;
+}
+
+.wrapper .sidebar ul li:hover a .text{
+    color: #000000;
+}
+
+.wrapper .sidebar .Out a{
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+}
+
+
+.wrapper .sidebar .Out a .icon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    height: 30px;
+    font-size: 1.5em;
+    color: #fff;
+
+}
+
+.wrapper .sidebar .Out a .text{
+    position: relative;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: #fff;
+    text-transform: 0.05em;
+    letter-spacing: 0.05em;
+
+}
+
+
+.wrapper .sidebar .Out a:hover{
+    color: #fff;
+}
+
+.wrapper .sidebar .Out a:hover .text{
+    color: #000000;
+}
+
+
+.wrapper .main_content{
+    width: 100%;
+    margin-left: 200px;
+    position: relative;
+}
+
+.wrapper .main_content .header{
+    padding: 20px;
+    background: #B11830;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
+
+.info{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+.info{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+
+
+.actions{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+}
+
+.actions h1{
+    font-size: 1.5re;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+}
+
+.actions .form{
+    margin-top: 30px;
+}
+.form .input-box{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-box label{
+    color: #333;
+}
+
+.form .input-box input{
+    position: relative;
+    height: 40px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.form .column{
+    display: flex;
+    column-gap: 15px;
+}
+
+ button{
+    align-content:center ;
+    height: 30px;
+    width: 40%;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 19px;
+    font-weight: 400;
+    background-color: #03A60A;
+}
+
+.validacion {
+    margin-top: 5px;
+}
+
+.validacion span {
+    color: red;
+    font-size: 12px;
+}

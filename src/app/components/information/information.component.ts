@@ -12,12 +12,16 @@ export class InformationComponent implements OnInit{
 
   public personal: any;
   id: string;
+  fechaYHora: Date;
+
 
 
   
   
   constructor( private _route: ActivatedRoute,private _personalService: PersonalService){
     this.id = '';
+    this.fechaYHora = new Date();
+
   }
 
 
@@ -42,7 +46,6 @@ export class InformationComponent implements OnInit{
     if (id !== null) {
       this._personalService.getInfoPerfil(id).subscribe((data) => {
         this.personal = data;
-        console.log('Datos recibidos', data)
       }, error => {
         console.error('Error al obtener la información del perfil:', error);
       });
