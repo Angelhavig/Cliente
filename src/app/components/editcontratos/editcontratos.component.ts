@@ -135,7 +135,7 @@ export class EditcontratosComponent implements OnInit {
       
     };
       this._contratoService.editContrato(id_Personal, contrato).subscribe(data =>{
-        this.mensajeExito('Creado con exito');
+        this.mensajeExito('Actualizado con exito');
       } );
     
   }

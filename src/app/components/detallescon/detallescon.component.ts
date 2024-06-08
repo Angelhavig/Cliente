@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EmailContratos } from 'src/app/interfaces/correo';
 import { ContratosService } from 'src/app/services/contratos.service';
 import { EmailService } from 'src/app/services/email.service';
 
@@ -13,19 +14,15 @@ export class DetallesconComponent implements OnInit{
   public contrato: any;
   id: string;
   fechaYHora: Date;
-  public emailCont: any;
-
-
-
   
-  
+  public emailCont: string[] = [];
+
+
   constructor( private _route: ActivatedRoute,private _contratoService: ContratosService , private router: Router, private _emailService: EmailService ){
     this.id = '';
     this.fechaYHora = new Date();
 
   }
-
-
 
   ngOnInit(): void {
     const idFromRoute = this._route.snapshot.paramMap.get('id');
@@ -40,9 +37,6 @@ export class DetallesconComponent implements OnInit{
     console.error("'id' parameter is null.");
   }
   }
-  
-
-
 
   getInfo(id: number) {
     if (id !== null) {
@@ -61,45 +55,38 @@ export class DetallesconComponent implements OnInit{
     this.router.navigate(['Informacion',id]);
   }
 
-  send(id: number){
-    this._emailService.getEmail(id).subscribe((data) => {
-      this.emailCont = data;
-      console.log(this.emailCont)
-  })
-  
-}
+  send(id: number) {
+    this._emailService.getEmail(id).subscribe((data: EmailContratos) => {
+      this.emailCont = data.emails;
+      console.log('Emails obtenidos:', this.emailCont);
+    }, error => {
+      console.error('Error al obtener los correos electrónicos:', error);
+    });
+  }
 
-sendEmails() {
-  const recipients = [
-    { email: this.emailCont[0].EmailP, url: this.getUniqueUrl(this.emailCont.emailP) },
-    { email: this.emailCont[0].Email_T1, url: this.getUniqueUrl(this.emailCont.email_T1) },
-    { email: this.emailCont[0].Email_T2, url: this.getUniqueUrl(this.emailCont.email_T2) },
-    { email: this.emailCont[0].Email_Admin, url: this.getUniqueUrl(this.emailCont.emailAdmin) }
+
+async sendEmails() {
+
+  const emailsAndBodies = [
+    { to: '', body: 'Binevenido al Personal' },
+    { to:'', body: 'Gracias por ser el Testigo 1' },
+    { to: '', body: 'Gracias Por ser el textigo 2' },
+    { to: '', body: 'Gracias por ser el administrador' }
   ];
 
-  const subject = '¡Bienvenido a nuestro sistema!';
+  const subject = '¡Nuevo Contratos!';
 
-  recipients.forEach(recipient => {
-    const body = `Hola, bienvenido a nuestro sistema. Por favor, <a href="${recipient.url}">inicie sesión</a> para comenzar.`;
-    
-    this._emailService.sendEmail(recipient.email, subject, body).subscribe(
-      response => console.log(response),
-      error => console.error(error)
-    );
-  });
-}
-getUniqueUrl(email: string): string {
-  // Define aquí tu lógica para generar URLs únicas basadas en la dirección de correo electrónico
-  // Por ahora, he dejado un ejemplo simple
-  const uniqueUrls = new Map<string, string>([
-    ['usuario1@example.com', 'http://localhost:4200/Vista/Usuario'],
-    ['usuario2@example.com', 'http://url_de_tu_sistema/login/Testigo1'],
-    ['usuario1@example.com', 'http://localhost:4200/Vista/Testigo1'],
-    ['usuario2@example.com', 'http://url_de_tu_sistema/login/Admin'],
-    // Agrega más usuarios y URLs únicas aquí
-  ]);
+  const emailPromises = emailsAndBodies.map(({ to, body }) => 
+    this._emailService.sendEmail(to, subject, body).toPromise()
+  );
 
-  return uniqueUrls.get(email) || 'http://localhost:4200/Vista'; // URL por defecto si no se encuentra una URL única para el usuario
+  try {
+    const responses = await Promise.all(emailPromises);
+    responses.forEach(response => console.log('Correo electrónico enviado:', response));
+  } catch (error) {
+    console.error('Error al enviar uno o más correos electrónicos:', error);
+  }
 }
+
 
 }
