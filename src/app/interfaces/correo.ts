@@ -1,3 +1,6 @@
 export interface EmailContratos{
-    emails: string[];
+    EmailP: string,
+    Email_T1: string,
+    Email_T2: string,
+    Email_Admin: string,
 }

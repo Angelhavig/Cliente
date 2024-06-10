@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EmailContratos } from 'src/app/interfaces/correo';
 import { ContratosService } from 'src/app/services/contratos.service';
 import { EmailService } from 'src/app/services/email.service';
 
@@ -14,13 +13,14 @@ export class DetallesconComponent implements OnInit{
   public contrato: any;
   id: string;
   fechaYHora: Date;
+  public emailCont: any;
   
-  public emailCont: string[] = [];
 
 
   constructor( private _route: ActivatedRoute,private _contratoService: ContratosService , private router: Router, private _emailService: EmailService ){
     this.id = '';
     this.fechaYHora = new Date();
+
 
   }
 
@@ -56,8 +56,8 @@ export class DetallesconComponent implements OnInit{
   }
 
   send(id: number) {
-    this._emailService.getEmail(id).subscribe((data: EmailContratos) => {
-      this.emailCont = data.emails;
+    this._emailService.getEmail(id).subscribe((data) => {
+      this.emailCont = data;
       console.log('Emails obtenidos:', this.emailCont);
     }, error => {
       console.error('Error al obtener los correos electrónicos:', error);
@@ -66,12 +66,16 @@ export class DetallesconComponent implements OnInit{
 
 
 async sendEmails() {
-
+  const correo_personal_contrato = this.emailCont[0].correo_personal
+  const correo_testigo_1_contrato = this.emailCont[0].correo_contrato_1
+  const correo_testigo_2_contrato = this.emailCont[0].correo_contrato_2
+  const correo_administrador_contrato = this.emailCont[0].correo_administrativo
+  
   const emailsAndBodies = [
-    { to: '', body: 'Binevenido al Personal' },
-    { to:'', body: 'Gracias por ser el Testigo 1' },
-    { to: '', body: 'Gracias Por ser el textigo 2' },
-    { to: '', body: 'Gracias por ser el administrador' }
+    { to: correo_personal_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/Solicitante' },
+    { to: correo_testigo_1_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/Testigo-Principal' },
+    { to: correo_testigo_2_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/Testigo-Secundario' },
+    { to: correo_administrador_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/Academia' }
   ];
 
   const subject = '¡Nuevo Contratos!';

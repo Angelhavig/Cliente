@@ -45,6 +45,7 @@ import { EditpersonalComponent } from './components/editpersonal/editpersonal.co
 import { DetallesconComponent } from './components/detallescon/detallescon.component';
 import { EditcontratosComponent } from './components/editcontratos/editcontratos.component';
 import { VistaComponent } from './components/vista/vista.component';
+import { DateFormatPipe } from './date-format.pipe';
 
 
 
@@ -65,6 +66,7 @@ import { VistaComponent } from './components/vista/vista.component';
     DetallesconComponent,
     EditcontratosComponent,
     VistaComponent,
+    DateFormatPipe,
   ],
   imports: [
     BrowserModule,

@@ -55,7 +55,7 @@
                     <form [formGroup]="form" (ngSubmit)="actualizar()">
                         <div class="column">
                             <label for="Puesto">Puesto</label>
-                            <select formControlName="Puesto" id="Puesto" (change)="seleccionarPuesto($event)">
+                            <select formControlName="Puesto" id="Puesto" (change)="seleccionarPuesto($event)" >
                                 <option value="" disabled selected>Seleccione el puesto</option>
                                 <option value="direccion">Dirección de Desarrollo y Gestión de Recursos Humanos</option>
                                 <option value="contraloria">Contraloría General</option>
@@ -65,11 +65,11 @@
                         <div class="column">
                             <div class="input-box">
                                 <label for="Nombre">Nombre Completo</label>
-                                <input formControlName="Nombre" type="text" id="Nombre" placeholder="Ingrese el Nombre Completo" />
+                                <input formControlName="Nombre" type="text" id="Nombre" placeholder="Ingrese el Nombre Completo" oninput="this.value = this.value.toUpperCase()"/>
                             </div>
                             <div class="input-box">
                                 <label for="Apellido">Apellido Completo</label>
-                                <input formControlName="Apellido" type="text" id="Apellido" placeholder="Ingrese el Apellido Completo" />
+                                <input formControlName="Apellido" type="text" id="Apellido" placeholder="Ingrese el Apellido Completo" oninput="this.value = this.value.toUpperCase()"/>
                             </div>
                         </div>
                         <div class="column">

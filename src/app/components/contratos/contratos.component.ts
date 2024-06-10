@@ -35,4 +35,9 @@ export class ContratosComponent  implements OnInit{
   edit(id?:number){
     this.router.navigate(['EditarContrato',id]);
   }
+
+  view(id?: number) {
+    this.router.navigate(['Vista'], { state: { id: id } });
+}
+
   }

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Personal } from '../interfaces/personal';
-import { Administracion, AdministracionData, Contrato, ContratoE, VContrato } from '../interfaces/contrato';
+import { Administracion, AdministracionData, Contrato, ContratoE, InformacionContratos, VContrato } from '../interfaces/contrato';
 
 @Injectable({
   providedIn: 'root'
@@ -83,6 +83,13 @@ export class ContratosService {
     return this.http.get<AdministracionData[]>(this.myAppUrl +'api/peticiones/Administracion/');
    }
 
-
+   InformacionContratos(id: number): Observable<InformacionContratos>{
+    return this.http.get<InformacionContratos>(this.myAppUrl +'api/peticiones/Informacion/' + id).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        return throwError(error);
+      })
+    );
+   }
 
 }

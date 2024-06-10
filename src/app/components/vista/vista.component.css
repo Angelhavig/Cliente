@@ -1,0 +1,106 @@
+/* Estilos básicos para el cuerpo */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Contenedor principal con margen */
+.container {
+    margin: 20px;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#actions{
+    margin: 68px;
+}
+
+/* Encabezados principales */
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-transform: uppercase;
+    border-top: 1px solid #333;
+    padding-bottom: 5px;
+    font-size: 10px;
+}
+
+/* Párrafos generales */
+p {
+    margin: 10px 0;
+    text-align: justify;
+    font-size: 10px;
+}
+
+/* Párrafos con indentado */
+p.indented {
+    text-indent: 50px;
+    font-size: 10px;
+}
+
+/* Estilo para las cláusulas */
+p strong {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+/* Estilo para las firmas */
+.signature {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+/* Estilo para las firmas en C.C.P. */
+.ccp {
+    margin-left: 40px;
+    font-size: 8px;
+}
+
+button{
+    border-radius: 12px;
+    background-color: green;
+    color: #f9f9f9;
+    margin: auto;
+    padding: auto;
+    width: 120px;
+    cursor: pointer;
+}
+
+/* Ajuste de márgenes para impresión */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+    }
+
+    .container {
+        margin: 40px;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    p {
+        margin: 10px 0;
+    }
+}

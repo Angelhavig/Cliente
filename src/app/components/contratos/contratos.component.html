@@ -76,6 +76,7 @@
                                     <td>{{ item.Termino }}</td>
                                     <td>
                                         <div class="btnactions">
+                                        <button (click)="view(item.id_Contrato)" ><mat-icon class="btnicon" matTooltip="Ver Contrato: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">visibility</mat-icon></button>
                                         <button (click)="edit(item.id_Contrato)" ><mat-icon class="btnicon" matTooltip="Editar: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">edit</mat-icon></button>
                                         <button  (click)="detalles(item.id_Contrato)"><mat-icon class="btnicon" matTooltip="Detalles: {{item.Apellido_Personal}} {{item.Nombre_Personal}}">info</mat-icon></button>
                                         </div>

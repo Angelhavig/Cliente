@@ -67,3 +67,33 @@ export interface AdministracionData{
     Correo: String,
     Puesto: String
 }
+
+
+export interface InformacionContratos{
+    Nombre_Personal?: string,
+    Apellido_Persona?: string,
+    Nacionalidad?: string,
+    RFC?: string,
+    CURP?: string,
+    CP?: string,
+    Calle?: string,
+    Colonia?: string,
+    NumeroIn?:string,
+    NumeroEx?: string,
+    Estado?: string,
+    Municipio?: string,
+    Funciones: string,
+    Adscrito: string,
+    Inicio: string,
+    Termino: string,
+    Sueldo:string,
+    Sueldo_Escrito: string,
+    Fecha_Creacion: string,
+    Nombre_T1: string,
+    Apellido_T1: string,
+    Nombre_T2: string,
+    Apellido_T2: string,
+    Directora: string,
+    Contraloria: string,
+    Tesorero: string,
+}

@@ -56,7 +56,7 @@
                     <form [formGroup]="form" (ngSubmit)="addPersonal()" class="form">
                         <div class="input-box">
                             <label for="Nombre_Personal">Nombre Completo</label>
-                            <input formControlName="Nombre_Personal" type="text" id="Nombre_Personal" placeholder="Ingrese el nombre completo" />
+                            <input formControlName="Nombre_Personal" type="text" id="Nombre_Personal" placeholder="Ingrese el nombre completo" oninput="this.value = this.value.toUpperCase()" />
                             <div class="validacion" *ngIf="form.controls['Nombre_Personal'].invalid && (form.controls['Nombre_Personal'].touched || form.controls['Nombre_Personal'].dirty) ">
                                 <span *ngIf="form.controls['Nombre_Personal'].errors?.['required']">El nombre es requerido</span>
                                 <span *ngIf="form.controls['Nombre_Personal'].errors?.['pattern']">El campo solo debe contener palabras</span>
@@ -65,7 +65,7 @@
                     
                         <div class="input-box">
                             <label for="Apellido_Personal">Apellido Completo</label>
-                            <input formControlName="Apellido_Personal" type="text" id="Apellido_Personal" placeholder="Ingrese el apellido completo" />
+                            <input formControlName="Apellido_Personal" type="text" id="Apellido_Personal" placeholder="Ingrese el apellido completo" oninput="this.value = this.value.toUpperCase()"/>
                             <div class="validacion" *ngIf="form.controls['Apellido_Personal'].invalid && (form.controls['Apellido_Personal'].touched || form.controls['Apellido_Personal'].dirty) ">
                                 <span *ngIf="form.controls['Apellido_Personal'].errors?.['required']">El nombre es requerido</span>
                                 <span *ngIf="form.controls['Apellido_Personal'].errors?.['pattern']">El campo solo debe contener palabras</span>
@@ -74,7 +74,7 @@
                     
                         <div class="input-box">
                             <label for="Telefono">Teléfono</label>
-                            <input formControlName="Telefono" type="text"  id="Telefono" placeholder="Ingrese el número de teléfono"  />
+                            <input formControlName="Telefono" type="text"  id="Telefono" placeholder="Ingrese el número de teléfono"  oninput="this.value = this.value.toUpperCase()"/>
                             <div class="validacion" *ngIf="form.controls['Telefono'].invalid && (form.controls['Telefono'].touched || form.controls['Telefono'].dirty) ">
                                 <span *ngIf="form.controls['Telefono'].errors?.['required']">El nombre es requerido</span>
                                 <span *ngIf="form.controls['Telefono'].errors?.['pattern']">El campo solo debe contener numeros</span>
@@ -83,7 +83,7 @@
                     
                         <div class="input-box">
                             <label for="Correo">Correo Electronico</label>
-                            <input  formControlName="Correo" type="email" id="correo" placeholder="Ingrese el correo electrónico" />
+                            <input  formControlName="Correo" type="email" id="correo" placeholder="Ingrese el correo electrónico"  />
                             <div class="validacion" *ngIf="form.controls['Correo'].invalid && (form.controls['Correo'].touched || form.controls['Correo'].dirty) ">
                                 <span *ngIf="form.controls['Correo'].errors?.['required']">El nombre es requerido</span>
                                 <span *ngIf="form.controls['Correo'].errors?.['email']">El campo debe tener el formato user@domain.com</span>
@@ -92,7 +92,7 @@
                     
                         <div class="input-box">
                             <label for="Nacionalidad">Nacionalidad</label>
-                            <input formControlName="Nacionalidad" type="text" id="Nacionalidad" placeholder="Ingrese la nacionalidad"  />
+                            <input formControlName="Nacionalidad" type="text" id="Nacionalidad" placeholder="Ingrese la nacionalidad"  oninput="this.value = this.value.toUpperCase()"/>
                             <div class="validacion" *ngIf="form.controls['Nacionalidad'].invalid && (form.controls['Nacionalidad'].touched || form.controls['Nacionalidad'].dirty) ">
                                 <span *ngIf="form.controls['Nacionalidad'].errors?.['required']">El nombre es requerido</span>
                                 <span *ngIf="form.controls['Nacionalidad'].errors?.['pattern']">El campo solo debe contener palabras</span>
@@ -102,7 +102,7 @@
                         <div class="column">
                             <div class="input-box">
                                 <label for="CURP">CURP</label>
-                                <input formControlName="CURP" type="text" id="CURP" placeholder="ingrese la CURP" />
+                                <input formControlName="CURP" type="text" id="CURP" placeholder="ingrese la CURP"  oninput="this.value = this.value.toUpperCase()"/>
                                 <div class="validacion" *ngIf="form.controls['CURP'].invalid && (form.controls['CURP'].touched || form.controls['CURP'].dirty) ">
                                     <span *ngIf="form.controls['CURP'].errors?.['required']">El nombre es requerido</span>
                                 </div>
@@ -110,7 +110,7 @@
                     
                             <div class="input-box">
                                 <label for="RFC">RFC</label>
-                                <input  formControlName="RFC" type="text" id="RFC" placeholder="ingrese el RFC" />
+                                <input  formControlName="RFC" type="text" id="RFC" placeholder="ingrese el RFC"  oninput="this.value = this.value.toUpperCase()"/>
                                 <div class="validacion" *ngIf="form.controls['RFC'].invalid && (form.controls['RFC'].touched || form.controls['RFC'].dirty) ">
                                     <span *ngIf="form.controls['RFC'].errors?.['required']">El nombre es requerido</span>
                                 </div>
@@ -119,7 +119,7 @@
 
                         <div class="input-box">
                             <label for="CP">Codigo Postal</label>
-                            <input  formControlName="CP" type="text" id="CP" placeholder="Ingrese el código postal" />
+                            <input  formControlName="CP" type="text" id="CP" placeholder="Ingrese el código postal" oninput="this.value = this.value.toUpperCase()" />
                             <div class="validacion" *ngIf="form.controls['CP'].invalid && (form.controls['CP'].touched || form.controls['CP'].dirty) ">
                                 <span *ngIf="form.controls['CP'].errors?.['required']">El nombre es requerido</span>
                                 <span *ngIf="form.controls['CP'].errors?.['pattern']">El campo solo debe contener numeros</span>
@@ -128,7 +128,7 @@
                     
                         <div class="input-box">
                             <label for="calle">Calle</label>
-                            <input formControlName="Calle" type="text" id="calle" placeholder="Ingrese el nombre de la calle" />
+                            <input formControlName="Calle" type="text" id="calle" placeholder="Ingrese el nombre de la calle" oninput="this.value = this.value.toUpperCase()" />
                             <div class="validacion" *ngIf="form.controls['Calle'].invalid && (form.controls['Calle'].touched || form.controls['Calle'].dirty) ">
                                 <span *ngIf="form.controls['Calle'].errors?.['required']">El nombre es requerido</span>
                             </div>
@@ -136,7 +136,7 @@
                         
                         <div class="input-box">
                             <label for="Colonia">Colonia</label>
-                            <input formControlName="Colonia" type="text" id="Colonia" placeholder="Ingrese el nombre de la colonia" />
+                            <input formControlName="Colonia" type="text" id="Colonia" placeholder="Ingrese el nombre de la colonia" oninput="this.value = this.value.toUpperCase()"/>
                             <div class="validacion" *ngIf="form.controls['Colonia'].invalid && (form.controls['Colonia'].touched || form.controls['Colonia'].dirty) ">
                                 <span *ngIf="form.controls['Colonia'].errors?.['required']">El nombre es requerido</span>
                                 <span *ngIf="form.controls['Colonia'].errors?.['pattern']">El campo solo debe contener numeros</span>
@@ -146,7 +146,7 @@
                         <div class="column">
                             <div class="input-box">
                                 <label for="NumeroIn">Número Interior</label>
-                                <input formControlName="NumeroIn" type="text" id="NumeroIn" placeholder="Ingrese el número interior" />
+                                <input formControlName="NumeroIn" type="text" id="NumeroIn" placeholder="Ingrese el número interior" oninput="this.value = this.value.toUpperCase()"/>
                                 <div class="validacion" *ngIf="form.controls['NumeroIn'].invalid && (form.controls['NumeroIn'].touched || form.controls['NumeroIn'].dirty) ">
                                     <span *ngIf="form.controls['NumeroIn'].errors?.['required']">El nombre es requerido</span>
                                     <span *ngIf="form.controls['NumeroIn'].errors?.['pattern']">El campo solo debe contener numeros</span>
@@ -155,7 +155,7 @@
                     
                             <div class="input-box">
                                 <label for="NumeroEx">Número Exterior</label>
-                                <input  formControlName="NumeroEx" type="text" id="NumeroEx" placeholder="Ingrese el número exterior" />
+                                <input  formControlName="NumeroEx" type="text" id="NumeroEx" placeholder="Ingrese el número exterior" oninput="this.value = this.value.toUpperCase()"/>
                                 <div class="validacion" *ngIf="form.controls['NumeroEx'].invalid && (form.controls['NumeroEx'].touched || form.controls['NumeroEx'].dirty) ">
                                     <span *ngIf="form.controls['NumeroEx'].errors?.['required']">El nombre es requerido</span>
                                     <span *ngIf="form.controls['NumeroEx'].errors?.['pattern']">El campo solo debe contener numeros</span>
@@ -166,7 +166,7 @@
                         <div class="column">
                             <div class="input-box">
                                 <label for="estado">Estado</label>
-                                <input formControlName="Estado" type="text" id="estado" placeholder="Ingrese el estado"  />
+                                <input formControlName="Estado" type="text" id="estado" placeholder="Ingrese el estado"  oninput="this.value = this.value.toUpperCase()"/>
                                 <div class="validacion" *ngIf="form.controls['Estado'].invalid && (form.controls['Estado'].touched || form.controls['Estado'].dirty) ">
                                     <span *ngIf="form.controls['Estado'].errors?.['required']">El nombre es requerido</span>
                                     <span *ngIf="form.controls['Estado'].errors?.['pattern']">El campo solo debe contener palabras</span>
@@ -175,7 +175,7 @@
                     
                             <div class="input-box">
                                 <label for="municipio">Municipio</label>
-                                <input formControlName="Municipio" type="text" id="municipio" placeholder="Ingrese el municipio" />
+                                <input formControlName="Municipio" type="text" id="municipio" placeholder="Ingrese el municipio" oninput="this.value = this.value.toUpperCase()"/>
                                 <div class="validacion" *ngIf="form.controls['Municipio'].invalid && (form.controls['Municipio'].touched || form.controls['Municipio'].dirty) ">
                                     <span *ngIf="form.controls['Municipio'].errors?.['required']">El nombre es requerido</span>
                                     <span *ngIf="form.controls['Municipio'].errors?.['pattern']">El campo solo debe contener palabras</span>
