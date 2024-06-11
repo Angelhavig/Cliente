@@ -76,4 +76,80 @@ export class VistaComponent implements OnInit{
     console.error("No se encontró ningún elemento con el ID 'pdf'.");
   }
   }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  firmar() {
+    const tokenRuta = this._route.snapshot.paramMap.get('token');
+    const perfilRuta = this._route.snapshot.paramMap.get('perfil');
+    const idFromRoute = this._route.snapshot.paramMap.get('id');
+
+
+    if(perfilRuta == 'Solicitante'){
+      if(idFromRoute !== null){
+        this.id_secundario = idFromRoute;
+        console.log(this.id_secundario)
+        const id_Contrato = +this.id_secundario;
+        this._contratoService.putFUsuario(id_Contrato, tokenRuta).subscribe((data) => {
+        }, error => {
+          console.error('Error al obtener la información del perfil:', error);
+        });
+      }
+      else {
+        console.error('id is undefined or null')
+      }
+    }
+    if(perfilRuta == 'Testigo-Principal'){
+      if(idFromRoute !== null){
+        this.id_secundario = idFromRoute;
+        console.log(this.id_secundario)
+        const id_Contrato = +this.id_secundario;
+        this._contratoService.putFTestigo1(id_Contrato, tokenRuta).subscribe((data) => {
+        }, error => {
+          console.error('Error al obtener la información del perfil:', error);
+        });
+      }
+      else {
+        console.error('id is undefined or null')
+      }
+    }
+    if(perfilRuta == 'Testigo-Secundario'){
+      if(idFromRoute !== null){
+        this.id_secundario = idFromRoute;
+        console.log(this.id_secundario)
+        const id_Contrato = +this.id_secundario;
+        this._contratoService.putFTestigo2(id_Contrato, tokenRuta).subscribe((data) => {
+        }, error => {
+          console.error('Error al obtener la información del perfil:', error);
+        });
+      }
+      else {
+        console.error('id is undefined or null')
+      }
+
+    }
+    if(perfilRuta == 'Academia'){
+      if(idFromRoute !== null){
+        this.id_secundario = idFromRoute;
+        console.log(this.id_secundario)
+        const id_Contrato = +this.id_secundario;
+        this._contratoService.(id_Contrato, tokenRuta).subscribe((data) => {
+        }, error => {
+          console.error('Error al obtener la información del perfil:', error);
+        });
+      }
+      else {
+        console.error('id is undefined or null')
+      }
+
+    }
+    alert(tokenRuta)
+    this.closeModal();
+  }
 }
