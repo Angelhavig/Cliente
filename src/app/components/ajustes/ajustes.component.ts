@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Administracion } from 'src/app/interfaces/contrato';
@@ -11,7 +11,7 @@ import { ContratosService } from 'src/app/services/contratos.service';
   styleUrls: ['./ajustes.component.css']
 })
 export class AjustesComponent implements OnInit{
-
+  //Declaracion de variables 
   form: FormGroup;
   public admin: any;
   fechaYHora: Date;
@@ -20,23 +20,24 @@ export class AjustesComponent implements OnInit{
   constructor(
     private fb: FormBuilder, private _snackBar: MatSnackBar,
     private _contratoService: ContratosService,
-    private _route: ActivatedRoute,
   ){
-
+    //Definicion de las reglas del formulario
     this.form = this.fb.group({
       Puesto: ['', [Validators.required, Validators.maxLength(100)]],
       Nombre: ['', [Validators.required, Validators.maxLength(100)]],
       Apellido: ['', [Validators.required, Validators.maxLength(100)]],
       Correo: ['', [Validators.required, Validators.maxLength(100)]],
   });
+  //Methodo que genera la fecha
   this.fechaYHora = new Date();
 
   }
-
+  //Funcion que se ejecuta al inicio (Vacia)
   ngOnInit(): void {
     
   }
 
+  //Funcion que realiza un get para traer los valores de la DB, setea los datos en el formulario y actualiza los registros
   actualizar() {
     const puesto = this.form.get('Puesto')?.value;
     const nombre = this.form.get('Nombre')?.value;
@@ -67,7 +68,7 @@ export class AjustesComponent implements OnInit{
   
   
 
-
+  //Funcion que envia un GET WHERE a la DB para obtener los datos dependiendo del puesto
   seleccionarPuesto(event: any) {
     const puesto = event.target.value;
     if (puesto === 'direccion') {
@@ -103,7 +104,7 @@ export class AjustesComponent implements OnInit{
     }
 }
 
-
+//Mensaje de cambio y obtencion de datos exitoso
 mensajeVacio(operacion: string) {
   this._snackBar.open(`${operacion}`,'', {
       duration: 2000

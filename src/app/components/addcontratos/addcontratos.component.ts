@@ -1,6 +1,5 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { Contrato } from 'src/app/interfaces/contrato';
@@ -12,7 +11,7 @@ import { ContratosService } from 'src/app/services/contratos.service';
   styleUrls: ['./addcontratos.component.css']
 })
 export class AddcontratosComponent {
-  
+  //Declaracion de variables del Compenente
   form: FormGroup;
   id: number;
   public administrativo: any;
@@ -24,6 +23,8 @@ export class AddcontratosComponent {
     private _contratoService: ContratosService,
     private _route: ActivatedRoute,
   ){
+
+    //Reglas del formulario de registro de un nuevo contrato
     this.form = this.fb.group({
       Funciones: ['', [Validators.required, Validators.maxLength(100),  Validators.pattern(/^[a-zA-Z\s]*$/)]],
       Adscrito: ['', [Validators.required, Validators.maxLength(100),  Validators.pattern(/^[a-zA-Z\s]*$/)]],
@@ -48,12 +49,14 @@ export class AddcontratosComponent {
       Fecha_Creacion: ['', [Validators.required, Validators.maxLength(100)]],
       
     });
+    //Asignacion de valor a la variable principal id y creacion del methodo fecha
     this.id = 0;
     this.fechaYHora = new Date();
 
   }
-
+  //Funcion que se ejecuta al iniciar la pagina
   ngOnInit(): void {    
+    //Funcion que toma el id de la ruta y asigna los valores al formulario de la DB para su edicion
     this.id = +this._route.snapshot.paramMap.get('id')!;
     this._contratoService.getInfoAdmin().subscribe((data)=>{
       this.administrativo = data;
@@ -65,9 +68,7 @@ export class AddcontratosComponent {
       })
     })
   }
-
-  cancelar(){}
-
+  //Funcion que almacena y envia los valores mediante un servicio
   addContrato(){
     
     if(this.form.invalid || this.id === null){
@@ -102,7 +103,7 @@ export class AddcontratosComponent {
     
   }
 
-
+  //Mensaje de confirmacion que se ejecuta una vez el registro sea exitoso
   mensajeExito(operacion: string) {
     this._snackBar.open(`${operacion}`, '', {
       duration: 2000

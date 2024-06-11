@@ -38,10 +38,6 @@ const routes: Routes = [
 
 ];
 
-//  path: 'dashboard-admin', component: DashboardAdminComponent, canActivate: [AuthGuard] 
-// path: 'blog-admin/:id/:titulo_Blog', component: ViewBlogAdminComponent, canActivate: [AuthGuard] 
-
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

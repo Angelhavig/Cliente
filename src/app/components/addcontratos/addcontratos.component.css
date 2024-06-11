@@ -21,8 +21,8 @@ body{
 }
 
 .wrapper .sidebar img {
-    width: 100%; /* Cambia este valor al ancho deseado */
-    height: 80px; /* Esto mantiene la proporción de aspecto */
+    width: 100%; 
+    height: 80px;
     align-items: center;
 }
 

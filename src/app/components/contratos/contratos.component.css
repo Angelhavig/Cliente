@@ -20,8 +20,8 @@ body{
     padding: 30px 0;
 }
 .wrapper .sidebar img {
-    width: 100%; /* Cambia este valor al ancho deseado */
-    height: 80px; /* Esto mantiene la proporción de aspecto */
+    width: 100%; 
+    height: 80px; 
     align-items: center;
 }
 
@@ -223,8 +223,8 @@ th,td{
 }
 .btnactions {
     display: flex;
-    justify-content: center; /* Centra los botones horizontalmente */
-    align-items: center; /* Centra los botones verticalmente */
+    justify-content: center; 
+    align-items: center;
     margin-left: 10px;
   }
   
@@ -238,10 +238,10 @@ th,td{
   }
   
   .btnactions button .btnicon {
-    font-size: 20px; /* Tamaño del ícono */
-    color: #000; /* Color del ícono */
+    font-size: 20px; 
+    color: #000;
   }
   
   .btnactions button:hover .btnicon {
-    color: #0298cf; /* Cambia el color del ícono al pasar el ratón sobre él */
+    color: #0298cf; 
   }

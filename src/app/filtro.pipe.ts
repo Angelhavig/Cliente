@@ -3,6 +3,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'filtro'
 })
+
+// Funcion que realiza los filtros en la tabla de Personal
 export class FiltroPipe implements PipeTransform {
 
   transform(items: any[], filtro: string): any[] {

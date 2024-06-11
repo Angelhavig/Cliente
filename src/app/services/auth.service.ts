@@ -28,7 +28,7 @@ export class AuthService {
     return this.firebaseAuthenticationService.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         this.userData = userCredential.user;
-        this.router.navigate(['/Home']); // Redirigir aquí después de iniciar sesión
+        this.router.navigate(['/Home']); 
       })
       .catch((error) => {
         throw error;

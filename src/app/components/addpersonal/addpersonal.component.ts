@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Personal, PersonalData } from 'src/app/interfaces/personal';
+import { PersonalData } from 'src/app/interfaces/personal';
 import { PersonalService } from 'src/app/services/personal.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { PersonalService } from 'src/app/services/personal.service';
   styleUrls: ['./addpersonal.component.css']
 })
 export class AddpersonalComponent implements OnInit{
-
+  //Declaracion de variables
   form: FormGroup;
   fechaYHora: Date;
 
@@ -20,6 +19,7 @@ export class AddpersonalComponent implements OnInit{
     private fb: FormBuilder, private _snackBar: MatSnackBar,
     private _personalService: PersonalService
   ){
+    //Definicion de las reglas del formulario
     this.form = this.fb.group({
       Nombre_Personal: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^[a-zA-Z\s]*$/)]],
       Apellido_Personal: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^[a-zA-Z\s]*$/)]],
@@ -36,16 +36,16 @@ export class AddpersonalComponent implements OnInit{
       Estado: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^[a-zA-Z\s]*$/)]],
       Municipio: ['', [Validators.required, Validators.maxLength(100), Validators.pattern(/^[a-zA-Z\s]*$/)]],
     })
+
+    //Methodo que genera la fecha actual
     this.fechaYHora = new Date();
 
   }
-
+  //Funcion que se ejecuta al iniciar(vacia)
   ngOnInit(): void {
     
   }
-
-  cancelar(){}
-
+  //Funcion que almacena y envia el nuevo registro a la DB
   addPersonal(){
     if(this.form.invalid){
       return;
@@ -72,7 +72,7 @@ export class AddpersonalComponent implements OnInit{
     
   }
 
-
+  //Mensaje de confirmacion de registro
   mensajeExito(operacion: string) {
     this._snackBar.open(`${operacion}`, '', {
       duration: 2000

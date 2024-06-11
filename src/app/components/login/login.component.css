@@ -12,7 +12,7 @@ body {
 
 .left-section {
   flex: 1;
-  background-color: #B11830; /* Cambia esto al color que desees */
+  background-color: #B11830; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +20,8 @@ body {
 
 .left-section img {
   max-width: 80%;
+  max-height: 350px;
+  width: auto;
   height: auto;
 }
 

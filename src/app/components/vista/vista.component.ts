@@ -4,9 +4,6 @@ import html2canvas from 'html2canvas';
 import * as jsPDF from 'jspdf';
 import { ContratosService } from 'src/app/services/contratos.service';
 
-
-
-
 @Component({
   selector: 'app-vista',
   templateUrl: './vista.component.html',
@@ -14,12 +11,14 @@ import { ContratosService } from 'src/app/services/contratos.service';
 })
 export class VistaComponent implements OnInit{
 
+  //Declaracion de variables
   public InformacionContrato : any;
   id:number;
   id_secundario: string;
   isModalOpen = false;
   
   constructor( private _route: ActivatedRoute, private _contratoService: ContratosService ,private router: Router){
+    //Asignacion de valor a las variables y obtencion del id
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state as { id: number };
     let finalid = state?.id;
@@ -27,50 +26,46 @@ export class VistaComponent implements OnInit{
     this.id_secundario = '';
   }
 
-    ngOnInit(): void {
-      const idFromRoute = this._route.snapshot.paramMap.get('id');
-      console.log(idFromRoute);
-      if(this.id !== null){
-        this.getInfo(this.id);
-      } 
-      if(idFromRoute !== null){
-        this.id_secundario = idFromRoute;
-        console.log(this.id_secundario)
-        const id_Contrato = +this.id_secundario;
-        this.getInfo(id_Contrato);
-      }
-      else {
-        console.error('id is undefined or null')
-      }
+  //Funcion que se ejecuta al incio
+  ngOnInit(): void {
+    const idFromRoute = this._route.snapshot.paramMap.get('id');
+    if(this.id !== null){
+      this.getInfo(this.id);
+    } 
+    if(idFromRoute !== null){
+      this.id_secundario = idFromRoute;
+      const id_Contrato = +this.id_secundario;
+      this.getInfo(id_Contrato);
     }
- 
- getInfo(id:number){
-  if (id !== null) {
-    this._contratoService.InformacionContratos(id).subscribe((data) => {
-      this.InformacionContrato = data;
-
-      console.log(this.InformacionContrato)
-    }, error => {
-      console.error('Error al obtener la información del perfil:', error);
-    });
-  } else {
-    console.error('Error al obtener el correo.');
+    else {
+      console.error('id is undefined or null')
+    }
   }
- }
+ 
+  //Funcion que obtiene los valores de la DB
+  getInfo(id:number){
+    if (id !== null) {
+      this._contratoService.InformacionContratos(id).subscribe((data) => {
+        this.InformacionContrato = data;
+      }, error => {
+        console.error('Error al obtener la información del perfil:', error);
+      });
+    } else {
+      console.error('Error al obtener el correo.');
+    }
+  }
 
 
+  //Funcion que genera el PDF
  imprimir() {
   const elementoPdf = document.getElementById('pdf');
-
   if (elementoPdf !== null) {
     html2canvas(elementoPdf).then((canvas: { toDataURL: (arg0: string) => any; }) => {
       const imgData = canvas.toDataURL('image/png');
-
       const pdf = new jsPDF.default();
       const imgProps = pdf.getImageProperties(imgData);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      
       pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
       pdf.save('Contrato laboral.pdf');
     });
@@ -79,20 +74,22 @@ export class VistaComponent implements OnInit{
   }
   }
 
+  //Funcion que habre el modal
   openModal() {
     this.isModalOpen = true;
   }
 
+  //Funcion que cierra el modal
   closeModal() {
     this.isModalOpen = false;
   }
 
+  //Funcion para firmar el contrato
   firmar() {
     const tokenRuta = this._route.snapshot.paramMap.get('token');
     const perfilRuta = this._route.snapshot.paramMap.get('perfil');
     const idFromRoute = this._route.snapshot.paramMap.get('id');
   
-
     if (idFromRoute === null) {
       console.error('id is undefined or null');
       return;

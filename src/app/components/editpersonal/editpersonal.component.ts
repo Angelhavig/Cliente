@@ -12,6 +12,7 @@ import { PersonalService } from 'src/app/services/personal.service';
 })
 export class EditpersonalComponent implements OnInit{
 
+  //Declaracion de variables
   form: FormGroup;
   id: string;
   public personal: any;
@@ -24,6 +25,8 @@ export class EditpersonalComponent implements OnInit{
     private _personalService: PersonalService,
     private _route: ActivatedRoute
   ){
+
+    //Asignacion de reglas el formulario
     this.form = this.fb.group({
       Nombre_Personal: ['', [Validators.required, Validators.maxLength(100)]],
       Apellido_Personal: ['', [Validators.required, Validators.maxLength(100)]],
@@ -40,11 +43,16 @@ export class EditpersonalComponent implements OnInit{
       Estado: ['', [Validators.required, Validators.maxLength(100)]],
       Municipio: ['', [Validators.required, Validators.maxLength(100)]],
     })
+
+    //Asignacion de valores a la variable principal
     this.id = '';
+
+    //Methodo que genera la fecha actual
     this.fechaYHora = new Date();
 
   }
 
+  //Funcion que se ejecuta al inicio tomando el id de la ruta y llamado de las funciones principales
   ngOnInit(): void {
     const idFromRoute = this._route.snapshot.paramMap.get('id');
     if (idFromRoute !== null) {
@@ -52,11 +60,11 @@ export class EditpersonalComponent implements OnInit{
       const id_Personal = +this.id;
       this.getInfo(id_Personal);
     } else {
-      // Handle the case where 'id' parameter is null
-      // For example, you might want to handle it differently or show an error message
       console.error("'id' parameter is null.");
     }
   }
+
+  //Funcion que obtiene y asigna valores al formulario de la DB
   getInfo(id: number) {
     if (id !== null) {
       this._personalService.getInfoE(id).subscribe((data) => {
@@ -86,13 +94,7 @@ export class EditpersonalComponent implements OnInit{
     }
   }
 
-  getData(id: number){
-
-  }
-  
-
-  cancelar(){}
-
+  //Funcion que actualiza los datos de la DB
   addPersonal(){
     var id_Personal = Number(this.id);
     if(this.form.invalid){
@@ -120,7 +122,7 @@ export class EditpersonalComponent implements OnInit{
     
   }
 
-
+  //Funcion que genera un mensaje de exito
   mensajeExito(operacion: string) {
     this._snackBar.open(`${operacion}`, '', {
       duration: 2000

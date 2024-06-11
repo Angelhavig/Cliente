@@ -20,8 +20,8 @@ body{
     padding: 30px 0;
 }
 .wrapper .sidebar img {
-    width: 100%; /* Cambia este valor al ancho deseado */
-    height: 80px; /* Esto mantiene la proporción de aspecto */
+    width: 100%;
+    height: 80px;
     align-items: center;
 }
 
@@ -160,7 +160,7 @@ body{
     color: #333;
     font-weight: 500;
     text-align: center;
-    margin-bottom: 20px; /* Añadido espacio inferior */
+    margin-bottom: 20px; 
 }
 
 .actions .form {
@@ -169,21 +169,21 @@ body{
 
 .column {
     display: flex;
-    flex-direction: column; /* Cambiado de column a columnas para asegurar disposición vertical */
+    flex-direction: column;
 }
 
 .input-box {
-    margin-bottom: 15px; /* Añadido espacio inferior */
+    margin-bottom: 15px;
 }
 
 .input-box label {
     color: #333;
-    margin-bottom: 5px; /* Añadido espacio inferior */
+    margin-bottom: 5px; 
 }
 
 label {
     color: #333;
-    margin-bottom: 5px; /* Añadido espacio inferior */
+    margin-bottom: 5px; 
 }
 
 
@@ -201,7 +201,7 @@ label {
 }
 
 .button-container {
-    text-align: center; /* Alineación del botón al centro */
+    text-align: center; 
 }
 
 button {
@@ -217,5 +217,5 @@ button {
 }
 
 button:hover {
-    background-color: #048C05; /* Cambio de color al pasar el cursor */
+    background-color: #048C05; 
 }

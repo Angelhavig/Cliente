@@ -1,38 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
+  //Declaracion de variables
   showFiller = false;
   fechaYHora: Date;
 
-  
-  constructor( private fb: FormBuilder, private _snackBar: MatSnackBar, private _authService: AuthService, private router: Router){
+  constructor(private _authService: AuthService) {
+    //Methodo que genera la fecha actual
     this.fechaYHora = new Date();
-
-
   }
-  ngOnInit(): void {
 
-    
-  } 
+  //Funcion que se ejecuta la iniciar
+  ngOnInit(): void {}
 
+  //Funcion que cierra la sesion
   logout() {
-    this._authService.logOut().then(() => {
-      // Manejar la redirección o cualquier otra acción después de cerrar sesión
-    }).catch(error => {
-      console.error('Error al intentar cerrar sesión:', error);
-      // Manejar el error si es necesario
-    });
+    this._authService
+      .logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.error('Error al intentar cerrar sesión:', error);
+      });
   }
-
-
 }

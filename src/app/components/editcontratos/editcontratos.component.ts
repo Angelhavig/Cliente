@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { Contrato, ContratoE } from 'src/app/interfaces/contrato';
+import { ContratoE } from 'src/app/interfaces/contrato';
 import { ContratosService } from 'src/app/services/contratos.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ContratosService } from 'src/app/services/contratos.service';
   styleUrls: ['./editcontratos.component.css']
 })
 export class EditcontratosComponent implements OnInit {
-
+  //Declaracion de variables
   form: FormGroup;
   id: string;
   public contrato: any;
@@ -24,6 +24,7 @@ export class EditcontratosComponent implements OnInit {
     private _contratoService: ContratosService,
     private _route: ActivatedRoute
   ){
+    //Asignacion de reglas al formulario
     this.form = this.fb.group({
       Funciones: ['', [Validators.required, Validators.maxLength(100),  Validators.pattern(/^[a-zA-Z\s]*$/)]],
       Adscrito: ['', [Validators.required, Validators.maxLength(100),  Validators.pattern(/^[a-zA-Z\s]*$/)]],
@@ -48,11 +49,17 @@ export class EditcontratosComponent implements OnInit {
       Fecha_Creacion: ['', [Validators.required, Validators.maxLength(100)]],
       
     });
+
+    //Asignacion de valores a la variable principal
     this.id = '';
+
+    //Methodo que genera la fecha actual
     this.fechaYHora = new Date();
 
   }
 
+
+  //Funcion que se ejecuta al inicar la pagina
   ngOnInit(): void {
     const idFromRoute = this._route.snapshot.paramMap.get('id');
     if (idFromRoute !== null) {
@@ -60,11 +67,13 @@ export class EditcontratosComponent implements OnInit {
       const id_Personal = +this.id;
       this.getInfo(id_Personal);
     } else {
-      // Handle the case where 'id' parameter is null
-      // For example, you might want to handle it differently or show an error message
+
       console.error("'id' parameter is null.");
     }
   }
+
+
+  //Obtencion de los datos y seteo en el formulario dependiendo del id
   getInfo(id: number) {
     if (id !== null) {
       this._contratoService.getInfoE(id).subscribe((data) => {
@@ -101,13 +110,8 @@ export class EditcontratosComponent implements OnInit {
     }
   }
 
-  getData(id: number){
 
-  }
-  
-
-  cancelar(){}
-
+  //Funcion que almacena y envia los datos del formulario a la DB
   addContrato(){
     var id_Personal = Number(this.id);
     if(this.form.invalid){
@@ -140,7 +144,7 @@ export class EditcontratosComponent implements OnInit {
     
   }
 
-
+  //Funcion que genera un mensaje de exito
   mensajeExito(operacion: string) {
     this._snackBar.open(`${operacion}`, '', {
       duration: 2000
