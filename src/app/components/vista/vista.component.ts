@@ -17,6 +17,7 @@ export class VistaComponent implements OnInit{
   public InformacionContrato : any;
   id:number;
   id_secundario: string;
+  isModalOpen = false;
   
   constructor( private _route: ActivatedRoute, private _contratoService: ContratosService ,private router: Router){
     const navigation = this.router.getCurrentNavigation();
@@ -57,6 +58,7 @@ export class VistaComponent implements OnInit{
   }
  }
 
+
  imprimir() {
   const elementoPdf = document.getElementById('pdf');
 
@@ -89,67 +91,69 @@ export class VistaComponent implements OnInit{
     const tokenRuta = this._route.snapshot.paramMap.get('token');
     const perfilRuta = this._route.snapshot.paramMap.get('perfil');
     const idFromRoute = this._route.snapshot.paramMap.get('id');
+  
 
+    if (idFromRoute === null) {
+      console.error('id is undefined or null');
+      return;
+    }
+  
+    this.id_secundario = idFromRoute;
+    console.log(this.id_secundario);
+  
+    const id_Contrato = +this.id_secundario;
 
-    if(perfilRuta == 'Solicitante'){
-      if(idFromRoute !== null){
-        this.id_secundario = idFromRoute;
-        console.log(this.id_secundario)
-        const id_Contrato = +this.id_secundario;
-        this._contratoService.putFUsuario(id_Contrato, tokenRuta).subscribe((data) => {
-        }, error => {
-          console.error('Error al obtener la información del perfil:', error);
-        });
+    this._contratoService.postIdContrato(id_Contrato).subscribe(
+      () => {},
+      error => {
+        console.error('Error al obtener la información del perfil:', error);
       }
-      else {
-        console.error('id is undefined or null')
-      }
+    );
+  
+    switch (perfilRuta) {
+      case 'Solicitante':
+        this._contratoService.putFUsuario(id_Contrato, tokenRuta).subscribe(
+          () => {},
+          error => {
+            console.error('Error al obtener la información del perfil:', error);
+          }
+        );
+        break;
+  
+      case 'Testigo-Principal':
+        this._contratoService.putFTestigo1(id_Contrato, tokenRuta).subscribe(
+          () => {},
+          error => {
+            console.error('Error al obtener la información del perfil:', error);
+          }
+        );
+        break;
+  
+      case 'Testigo-Secundario':
+        this._contratoService.putFTestigo2(id_Contrato, tokenRuta).subscribe(
+          () => {},
+          error => {
+            console.error('Error al obtener la información del perfil:', error);
+          }
+        );
+        break;
+  
+      case 'Academia':
+        this._contratoService.putFAcademia(id_Contrato, tokenRuta).subscribe(
+          () => {},
+          error => {
+            console.error('Error al obtener la información del perfil:', error);
+          }
+        );
+        break;
+  
+      default:
+        console.error('Perfil no reconocido:', perfilRuta);
+        break;
     }
-    if(perfilRuta == 'Testigo-Principal'){
-      if(idFromRoute !== null){
-        this.id_secundario = idFromRoute;
-        console.log(this.id_secundario)
-        const id_Contrato = +this.id_secundario;
-        this._contratoService.putFTestigo1(id_Contrato, tokenRuta).subscribe((data) => {
-        }, error => {
-          console.error('Error al obtener la información del perfil:', error);
-        });
-      }
-      else {
-        console.error('id is undefined or null')
-      }
-    }
-    if(perfilRuta == 'Testigo-Secundario'){
-      if(idFromRoute !== null){
-        this.id_secundario = idFromRoute;
-        console.log(this.id_secundario)
-        const id_Contrato = +this.id_secundario;
-        this._contratoService.putFTestigo2(id_Contrato, tokenRuta).subscribe((data) => {
-        }, error => {
-          console.error('Error al obtener la información del perfil:', error);
-        });
-      }
-      else {
-        console.error('id is undefined or null')
-      }
-
-    }
-    if(perfilRuta == 'Academia'){
-      if(idFromRoute !== null){
-        this.id_secundario = idFromRoute;
-        console.log(this.id_secundario)
-        const id_Contrato = +this.id_secundario;
-        this._contratoService.(id_Contrato, tokenRuta).subscribe((data) => {
-        }, error => {
-          console.error('Error al obtener la información del perfil:', error);
-        });
-      }
-      else {
-        console.error('id is undefined or null')
-      }
-
-    }
-    alert(tokenRuta)
+  
+    alert(tokenRuta);
     this.closeModal();
   }
+  
 }

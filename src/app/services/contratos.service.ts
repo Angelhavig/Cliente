@@ -92,4 +92,56 @@ export class ContratosService {
     );
    }
 
+   //Firmas e insert id
+
+   postIdContrato(id: number): Observable<void>{
+    return this.http.post<void>(this.myAppUrl +'api/peticiones/Firma/', {id}).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        return throwError(error);
+      })
+    );
+   }
+
+
+   putFUsuario(id: number, F_Usuario: string | null): Observable<void>{
+    return this.http.put<void>(this.myAppUrl +'api/peticiones/Firma/Usuario/' +id, {F_Usuario}).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        return throwError(error);
+      })
+    );
+   }
+
+   putFTestigo1(id: number, F_Testigo1: string |null): Observable<void>{
+    return this.http.put<void>(this.myAppUrl +'api/peticiones/Firma/Testigo1/'+id, {F_Testigo1}).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        return throwError(error);
+      })
+    );
+   }
+
+   putFTestigo2(id: number, F_Testigo2: string | null): Observable<void>{
+    return this.http.put<void>(this.myAppUrl +'api/peticiones/Firma/Testigo2/'+id, {F_Testigo2}).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        return throwError(error);
+      })
+    );
+   }
+
+   putFAcademia(id: number, Academia: string | null): Observable<void>{
+    return this.http.put<void>(this.myAppUrl +'api/peticiones/Firma/Academia/'+id, {Academia}).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        return throwError(error);
+      })
+    );
+   }
+
+
+   
+
+
 }

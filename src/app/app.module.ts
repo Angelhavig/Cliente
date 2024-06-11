@@ -46,7 +46,10 @@ import { DetallesconComponent } from './components/detallescon/detallescon.compo
 import { EditcontratosComponent } from './components/editcontratos/editcontratos.component';
 import { VistaComponent } from './components/vista/vista.component';
 import { DateFormatPipe } from './date-format.pipe';
+import { FilterPipe } from './filter.pipe';
 
+import { FormsModule } from '@angular/forms';
+import { FiltroPipe } from './filtro.pipe';
 
 
 
@@ -67,9 +70,12 @@ import { DateFormatPipe } from './date-format.pipe';
     EditcontratosComponent,
     VistaComponent,
     DateFormatPipe,
+    FilterPipe,
+    FiltroPipe,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,

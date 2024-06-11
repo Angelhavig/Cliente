@@ -57,7 +57,7 @@
                     <div class="table_header">
                         <p>Personal</p>
                         <div>
-                            <input placeholder="personal">
+                            <input placeholder="personal"  [(ngModel)]="filtroNombre" (keyup)="applyFilter($event)">
                         </div>
                     </div>
                     <div class="table_section">
@@ -73,7 +73,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of dataSource.data">
+                                <tr *ngFor="let item of dataSource.data | filtro: filtroNombre">
                                     <td>{{ item.Apellido_Personal }} {{ item.Nombre_Personal }}</td>
                                     <td>{{ item.Telefono }}</td>
                                     <td>{{ item.Correo }}</td>

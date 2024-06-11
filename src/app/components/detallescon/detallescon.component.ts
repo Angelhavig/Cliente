@@ -71,11 +71,24 @@ async sendEmails() {
   const correo_testigo_2_contrato = this.emailCont[0].correo_contrato_2
   const correo_administrador_contrato = this.emailCont[0].correo_administrativo
   
+
+    // Método para generar un token único de 30 caracteres
+    const generateToken = (length = 30) => {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let token = '';
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        token += characters.charAt(randomIndex);
+      }
+      return token;
+    };
+
+    
   const emailsAndBodies = [
-    { to: correo_personal_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/Solicitante' },
-    { to: correo_testigo_1_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/Testigo-Principal' },
-    { to: correo_testigo_2_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/Testigo-Secundario' },
-    { to: correo_administrador_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/Academia' }
+    { to: correo_personal_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/'+ generateToken() +'/Solicitante' },
+    { to: correo_testigo_1_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/'+ generateToken() +'/Testigo-Principal' },
+    { to: correo_testigo_2_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/'+ generateToken() + '/Testigo-Secundario' },
+    { to: correo_administrador_contrato, body: 'http://localhost:4200/Vista/'+ this.id+ '/'+ generateToken() +'/Academia' }
   ];
 
   const subject = '¡Nuevo Contratos!';
@@ -91,6 +104,28 @@ async sendEmails() {
     console.error('Error al enviar uno o más correos electrónicos:', error);
   }
 }
+
+
+async sendFEmails() {
+  const correo_personal_contrato = this.emailCont[0].correo_personal
+  const emailsAndBodies = [
+    { to: correo_personal_contrato, body: '!Felicidades tu contrato laboral fue registrado con exito' },
+  ];
+
+  const subject = '¡Nuevo Contratos!';
+
+  const emailPromises = emailsAndBodies.map(({ to, body }) => 
+    this._emailService.sendEmail(to, subject, body).toPromise()
+  );
+
+  try {
+    const responses = await Promise.all(emailPromises);
+    responses.forEach(response => console.log('Correo electrónico enviado:', response));
+  } catch (error) {
+    console.error('Error al enviar uno o más correos electrónicos:', error);
+  }
+}
+
 
 
 }

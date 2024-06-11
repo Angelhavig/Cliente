@@ -34,23 +34,25 @@
         </p>
         <br>
         <br>
-
+        <p class="signature" style="color: blue;">{{con.F_Academia}}</p>
         <h2>POR LA UJED</h2>
         <p class="signature"> {{con.Directora}} <br>
         DIRECTORA DE DESARROLLO Y GESTIÓN DE RECURSOS HUMANOS</p>
         <br>
         <br>
+        <p class="signature" style="color: blue;">{{con.F_Usuario}}</p>
         <h2>EL PRESTADOR</h2>
         <p class="signature">C.{{con.Nombre_Personal}} {{con.Apellido_Personal}}</p>
         <br>
         <br>
+        <p class="signature" style="color: blue;">{{con.F_Testigo1}}</p>
         <h2>TESTIGO</h2>
         <p class="signature"> {{con.Nombre_T1}} {{con.Apellido_T1}}</p>
         <br>
         <br>
-
+        <p class="signature" style="color: blue;">{{con.F_Testigo2}}</p>
         <h2>TESTIGO</h2>
-        <p class="signature"> {{con.Nombre_T2}} {{con.Apellido_T2}} </p>
+        <p class="signature" > {{con.Nombre_T2}} {{con.Apellido_T2}} </p>
         <br>
         <br>
         <p class="ccp">C.C.P. {{con.Contraloria}}, CONTRALORÍA GENERAL</p>
@@ -61,6 +63,15 @@
     </div>
 </form>
 <div>
-    <button type="button" style="margin: 10px" class="btn" (click)="imprimir()">Generar PDF del Contrato</button>
+    <button type="button" class="btn" (click)="imprimir()">Generar PDF del Contrato</button>
+    <button type="button" class="btn" (click)="openModal()">Firmar</button>
+    <div *ngIf="isModalOpen" class="modal">
+      <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <p>¿Continuar con la firma?</p>
+        <button type="button" class="btn" (click)="firmar()">Firmar</button>
+        <button type="button" class="btn" (click)="closeModal()">Cancelar</button>
+      </div>
+    </div>
 </div>
 </body>

@@ -96,4 +96,8 @@ export interface InformacionContratos{
     Directora: string,
     Contraloria: string,
     Tesorero: string,
+    F_Usuario: string,
+    F_Testigo1: string,
+    F_Testigo2: string,
+    F_Academia: string
 }

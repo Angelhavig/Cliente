@@ -28,7 +28,7 @@ export class EmailService {
 
    sendEmail(to: string, subject: string, body: string) {
     const payload = { to, subject, body };
-    return this.http.post(this.myAppUrl + this.myApiUrl, payload).pipe(
+    return this.http.post(this.myAppUrl + 'api/peticiones/fEmails/', payload).pipe(
       catchError(error => {
         console.error('Error al enviar el correo electrónico:', error);
         return throwError(error);

@@ -17,6 +17,8 @@ export class PersonalComponent  implements OnInit, AfterViewInit{
 
   fechaYHora: Date;
 
+  
+  filtroNombre: string = '';
   dataSource = new MatTableDataSource<Personal>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -38,12 +40,8 @@ export class PersonalComponent  implements OnInit, AfterViewInit{
     this.dataSource.sort = this.sort;
   }
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+      const filtroValue = (event.target as HTMLInputElement).value;
+      this.filtroNombre = filtroValue.trim().toLowerCase();
   }
 
   getData(){
